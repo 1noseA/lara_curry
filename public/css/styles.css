@@ -1,5 +1,3 @@
-
-
 body {
   background-color: #f4f7f8;
 }
@@ -14,7 +12,6 @@ body {
   display: flex;
   height: 6rem;
   justify-content: space-between;
-  padding: 0 2%;
 }
 
 .navbar-brand {
@@ -33,6 +30,19 @@ a.nav-item:hover {
 
 .top-image {
   width: 100%;
+  position: relative;
+}
+.top-image h1 {
+  position: absolute;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin: 0;
+  padding: 8px;
 }
 img {
   width: 100%;
@@ -42,7 +52,6 @@ img {
 footer {
   background: #bb5520;
   height: 4rem;
-  margin-top: 3rem;
 }
 
 footer p {
