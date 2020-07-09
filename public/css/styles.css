@@ -1,46 +1,47 @@
-@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css');
+
 
 body {
   background-color: #f4f7f8;
 }
 
-.navbar {
+.nav {
   margin: 2rem 0 2.5rem 0;
 }
 
-.my-navbar {
+.navbar {
   align-items: center;
   background: #bb5520;
   display: flex;
-  height: 8rem;
+  height: 6rem;
   justify-content: space-between;
   padding: 0 2%;
 }
 
-.my-navbar-brand {
+.navbar-brand {
   font-size: 18px;
 }
 
-.my-navbar-brand,
-.my-navbar-item {
+.navbar-brand,
+.nav-item {
   color: #fff;
 }
 
-.my-navbar-brand:hover,
-a.my-navbar-item:hover {
+.navbar-brand:hover,
+a.nav-item:hover {
   color: #fff;
 }
 
+.top-image {
+  width: 100%;
+}
 img {
   width: 100%;
   height: 600px;
-
 }
 
 footer {
   background: #bb5520;
-  height: 6rem;
+  height: 4rem;
   margin-top: 3rem;
 }
 
