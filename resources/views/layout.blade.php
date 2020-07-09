@@ -12,7 +12,7 @@
 <body>
 <header>
   <nav class="navbar">
-    <a class="navbar-brand" href="/">ララカレー</a>
+    <a class="navbar-brand" href="/"><img src="{{ asset('/img/logo.png') }}"></a>
   </nav>
 </header>
 <main>
