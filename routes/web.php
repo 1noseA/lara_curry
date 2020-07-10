@@ -20,3 +20,8 @@ Route::get('/shop', 'HomeController@shop')->name('shop');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
