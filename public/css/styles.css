@@ -23,7 +23,8 @@ body {
 }
 
 a.nav-item:hover {
-  color: #fff;
+  color: rgba(0, 0, 0, 0.6);
+  text-decoration: none;
 }
 
 .top-image {
@@ -70,6 +71,11 @@ footer {
   height: 4rem;
 }
 
-footer p {
+footer a {
   color: #fff;
+}
+
+footer a:hover {
+  color: rgba(0, 0, 0, 0.6);
+  text-decoration: none;
 }

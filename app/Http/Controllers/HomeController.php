@@ -28,6 +28,6 @@ class HomeController extends Controller
 
     public function shop()
     {
-        return view('homes/shop');
+        return view('shop');
     }
 }

@@ -13,6 +13,18 @@
 <header>
   <nav class="navbar">
     <a class="navbar-brand" href="/"><img src="{{ asset('/img/logo.png') }}"></a>
+    <div class="navbar-control">
+      <a class="nav-item mr-3" href="/shop">店舗情報</a>
+      @if(Auth::check())
+        <a href="#" id="logout" class="nav-item mr-3">ログアウト</a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+          @csrf
+        </form>
+      @else
+        <a class="nav-item mr-3" href="{{ route('login') }}">ログイン</a>
+        <a class="nav-item mr-3" href="{{ route('register') }}">会員登録</a>
+      @endif
+    </div>
   </nav>
 </header>
 <main>
@@ -20,6 +32,6 @@
 </main>
 </body>
 <footer>
-  <p>テイクアウトインドカレー屋ララカレー</p>
+  <a href="/shop">テイクアウトインドカレー屋ララカレー</a>
 </footer>
 </html>
