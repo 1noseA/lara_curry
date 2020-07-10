@@ -16,7 +16,11 @@
     <div class="navbar-control">
       <a class="nav-item mr-3" href="/shop">店舗情報</a>
       @if(Auth::check())
-        <a href="#" id="logout" class="nav-item mr-3">ログアウト</a>
+        <a class="nav-item" href="{{ route('logout') }}"
+          onclick="event.preventDefault();
+          document.getElementById('logout-form').submit();">
+          ログアウト
+        </a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
           @csrf
         </form>
