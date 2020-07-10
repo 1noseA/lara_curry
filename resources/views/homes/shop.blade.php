@@ -3,7 +3,7 @@
 @section('content')
   <div class="container">
     <div class="row">
-      <div class="col col-md-6 mx-auto my-5">
+      <div class="col-md-6 mx-auto my-5">
         <h2>店舗情報</h2>
         {{-- 地図 --}}
         <table class="table">

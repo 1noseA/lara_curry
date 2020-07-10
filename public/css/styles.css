@@ -47,6 +47,24 @@ a.nav-item:hover {
   height: 600px;
 }
 
+.card a {
+  color: #bb5520;
+  text-decoration: none;
+}
+
+.card a:hover {
+  color: #ec6800;
+}
+
+.btn-add {
+  background: #bb5520;
+  color: #fff;
+}
+.btn-add:hover {
+  background-color: #ec6800;
+  color: #fff;
+}
+
 footer {
   background: #bb5520;
   height: 4rem;

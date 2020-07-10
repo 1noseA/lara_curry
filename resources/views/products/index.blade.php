@@ -11,7 +11,7 @@
   </div>
   <div class="container-fluid">
     <div class="row">
-      <div class="col col-md-10 mx-auto my-5">
+      <div class="col-md-10 mx-auto my-5">
         <div class="menu">
           <h3>メニュー</h3>
           <h4>カレー（辛さは4段階）</h4>
