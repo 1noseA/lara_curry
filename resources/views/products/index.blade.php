@@ -14,6 +14,7 @@
       <div class="col-md-10 mx-auto my-5">
         <div class="menu">
           <h3>メニュー</h3>
+          <p><img src="../../uploads/{{ $product->product_img }}"></p>
           <h4>カレー（辛さは4段階）</h4>
           <h4>ナンorライス</h4>
           <h4>サイドメニュー</h4>
