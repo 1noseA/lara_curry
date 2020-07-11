@@ -26,7 +26,7 @@
 </style>
 
 <div class="title">
-    Laravel-admin
+    管理画面
 </div>
 <div class="links">
     <a href="https://github.com/z-song/laravel-admin" target="_blank">Github</a>
