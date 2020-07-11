@@ -4,8 +4,11 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 mx-auto my-5">
-        <h2>店舗情報</h2>
+        <h2 class="text-center">店舗情報</h2>
         {{-- 地図 --}}
+        <div class="shop-map my-3">
+          <img src="{{ asset('/img/map.jpg') }}">
+        </div>
         <table class="table">
           <tr>
             <th>営業時間</th>

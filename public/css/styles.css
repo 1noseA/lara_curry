@@ -66,6 +66,11 @@ a.nav-item:hover {
   color: #fff;
 }
 
+.shop-map img {
+  width: 540px;
+  height: 300px;
+}
+
 footer {
   background: #bb5520;
   height: 4rem;
