@@ -4,8 +4,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 my-5">
-      <form action="{{ route('products.edit', ['id' => $product->id]) }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('product.update', ['product' => $product]) }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('PATCH')
         <input type="file" name="image">
     </div>
 
@@ -14,7 +15,7 @@
           <label for="category">カテゴリー</label>
           <select class="form-control" id="category" name="category">
             @foreach(config('category') as $key => $category)
-              <option value="{{ $key }}"{{ $key == old('category', $diary->category) ? 'selected' : '' }}>{{ $condition['label']  }}</option>
+              <option value="{{ $key }}"{{ $key == old('category', $product->category) ? 'selected' : '' }}>{{ $category['label']  }}</option>
             @endforeach
           </select>
         </div>
