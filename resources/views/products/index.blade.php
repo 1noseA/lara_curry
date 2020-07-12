@@ -42,7 +42,7 @@
                 <div class="card col-md-4">
                   <a href="/product/{{$product->id}}">
                     @if ($product->image == null)
-                      <img class="card-img" src="/img/nan.png">
+                      <img class="card-img" src="/img/curry_pot.png">
                     @else
                       <img class="card-img" src="../../uploads/{{ $product->image }}">
                     @endif
@@ -63,7 +63,7 @@
                 <div class="card col-md-4">
                   <a href="/product/{{$product->id}}">
                     @if ($product->image == null)
-                      <img class="card-img" src="/img/salad.png">
+                      <img class="card-img" src="/img/curry_pot.png">
                     @else
                       <img class="card-img" src="../../uploads/{{ $product->image }}">
                     @endif
@@ -84,7 +84,7 @@
                 <div class="card col-md-4">
                   <a href="/product/{{$product->id}}">
                     @if ($product->image == null)
-                      <img class="card-img" src="/img/drink_lassi.png">
+                      <img class="card-img" src="/img/curry_pot.png">
                     @else
                       <img class="card-img" src="../../uploads/{{ $product->image }}">
                     @endif

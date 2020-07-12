@@ -16,7 +16,9 @@ class ProductController extends Controller
     public function show($id)
     {
     $product = Product::find($id);
-    return view('products.show', ['product' => $product]);
+    $category = config('category');
+    $hot = config('hot');
+    return view('products.show', ['product' => $product])->with(['category' =>$category, 'hot'=>$hot]);
     }
 
     public function create()
