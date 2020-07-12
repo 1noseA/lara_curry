@@ -1,7 +1,4 @@
-body {
-  background-color: #f4f7f8;
-}
-
+/* ヘッダー */
 .nav {
   margin: 2rem 0 2.5rem 0;
 }
@@ -27,6 +24,46 @@ a.nav-item:hover {
   text-decoration: none;
 }
 
+/* フッター */
+footer {
+  background: #bb5520;
+  height: 4rem;
+}
+
+footer a {
+  color: #fff;
+}
+
+footer a:hover {
+  color: rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+}
+
+/* 管理画面 */
+.card a {
+  color: #bb5520;
+  text-decoration: none;
+}
+
+.card a:hover {
+  color: #ec6800;
+}
+
+/* 全体 */
+body {
+  background-color: #f4f7f8;
+}
+
+.btn-add {
+  background: #bb5520;
+  color: #fff;
+}
+.btn-add:hover {
+  background-color: #ec6800;
+  color: #fff;
+}
+
+/* トップページ（商品一覧） */
 .top-image {
   width: 100%;
   position: relative;
@@ -48,45 +85,18 @@ a.nav-item:hover {
   height: 600px;
 }
 
-.card a {
-  color: #bb5520;
-  text-decoration: none;
-}
-
-.card a:hover {
-  color: #ec6800;
-}
-
-.btn-add {
-  background: #bb5520;
-  color: #fff;
-}
-.btn-add:hover {
-  background-color: #ec6800;
-  color: #fff;
-}
-
-.shop-map img {
-  width: 540px;
-  height: 300px;
-}
-
-footer {
-  background: #bb5520;
-  height: 4rem;
-}
-
-footer a {
-  color: #fff;
-}
-
-footer a:hover {
-  color: rgba(0, 0, 0, 0.6);
-  text-decoration: none;
-}
-
 .product-wrapper {
   display: flex;
   flex-wrap: wrap;
-  
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 店舗情報 */
+.shop-map img {
+  width: 540px;
+  height: 300px;
 }

@@ -4,18 +4,19 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 my-5">
-      {{-- <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="file" name="image">
-      </form>  --}}
+      {{-- </form>  --}}
     </div>
 
     <div class="col-md-6 my-5">
-      <form action="/product" method="post">
-        @csrf
+      {{-- <form action="/product" method="post"> --}}
+        {{-- @csrf --}}
         <div class="form-group">
           <label for="category">カテゴリー</label>
           <select class="form-control" id="category" name="category">
+            <option value="">--選択してください--</option>
             @foreach(config('category') as $key => $category)
               <option value="{{ $key }}">{{ $category['label'] }}</option>
             @endforeach
@@ -42,7 +43,7 @@
           </select>
         </div>
         <div>
-          <input type="submit" value="登録" class="btn btn-add">
+          <input type="submit" value="登録" class="btn btn-add mt-3">
         </div>
       </form>
     </div>
