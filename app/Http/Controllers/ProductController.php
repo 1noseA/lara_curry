@@ -51,4 +51,10 @@ class ProductController extends Controller
 
         return redirect('/');
     }
+
+    public function edit($id)
+    {
+        $product = Product::find($id);
+        return view('products.edit', ['product' => $product]);
+    }
 }
