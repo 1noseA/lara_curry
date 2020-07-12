@@ -9,46 +9,74 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
       <div class="col-md-10 mx-auto my-5">
         <div class="menu">
           <h3>メニュー</h3>
-          <h4>カレー（辛さは4段階）</h4>
-          @foreach ($products as $product)
-            @if ($product->category === 1)
-            {{-- <p><img src="../../uploads/{{ $product->image }}"></p> --}}
-            <p>{{ $product->name }}</p>
-            <p>{{ $product->price }}</p>
-            @endif
-          @endforeach
+          <h4 class="my-3">カレー</h4>
+          <div class="product-wrapper">
+            @foreach ($products as $product)
+              @if ($product->category === 1)
+                <div class="card col-md-4">
+                  <img class="card-img" src="/img/curry_pot.png" alt="カードの画像">
+                  {{-- <p><img src="../../uploads/{{ $product->image }}"></p> --}}
+                  <div class="card-body">
+                    <p>{{ $product->name }}</p>
+                    <p>¥{{ $product->price }}</p>
+                  </div>
+                </div>
+              @endif
+            @endforeach
+          </div>
 
-          <h4>ナンorライス</h4>
-          @foreach ($products as $product)
-            @if ($product->category === 2)
-            {{-- <p><img src="../../uploads/{{ $product->image }}"></p> --}}
-            <p>{{ $product->name }}</p>
-            <p>{{ $product->price }}</p>
-            @endif
-          @endforeach
+          <h4 class="my-3">ナンorライス</h4>
+          <div class="product-wrapper">
+            @foreach ($products as $product)
+              @if ($product->category === 2)
+                <div class="card col-md-4">
+                  <img class="card-img" src="/img/nan.png" alt="カードの画像">
+                  {{-- <p><img src="../../uploads/{{ $product->image }}"></p> --}}
+                  <div class="card-body">
+                    <p>{{ $product->name }}</p>
+                    <p>¥{{ $product->price }}</p>
+                  </div>
+                </div>
+              @endif
+            @endforeach
+          </div>
 
-          <h4>サイドメニュー</h4>
-          @foreach ($products as $product)
-            @if ($product->category === 3)
-            {{-- <p><img src="../../uploads/{{ $product->image }}"></p> --}}
-            <p>{{ $product->name }}</p>
-            <p>{{ $product->price }}</p>
-            @endif
-          @endforeach
+          <h4 class="my-3">サイドメニュー</h4>
+          <div class="product-wrapper">
+            @foreach ($products as $product)
+              @if ($product->category === 3)
+                <div class="card col-md-4">
+                  <img class="card-img" src="/img/salad.png" alt="カードの画像">
+                  {{-- <p><img src="../../uploads/{{ $product->image }}"></p> --}}
+                  <div class="card-body">
+                    <p>{{ $product->name }}</p>
+                    <p>¥{{ $product->price }}</p>
+                  </div>
+                </div>
+              @endif
+            @endforeach
+          </div>
 
-          <h4>ドリンク</h4>
-          @foreach ($products as $product)
-            @if ($product->category === 4)
-            {{-- <p><img src="../../uploads/{{ $product->image }}"></p> --}}
-            <p>{{ $product->name }}</p>
-            <p>{{ $product->price }}</p>
-            @endif
-          @endforeach
+          <h4 class="my-3">ドリンク</h4>
+          <div class="product-wrapper">
+            @foreach ($products as $product)
+              @if ($product->category === 4)
+                <div class="card col-md-4">
+                  <img class="card-img" src="/img/drink_lassi.png" alt="カードの画像">
+                  {{-- <p><img src="../../uploads/{{ $product->image }}"></p> --}}
+                  <div class="card-body">
+                    <p>{{ $product->name }}</p>
+                    <p>¥{{ $product->price }}</p>
+                  </div>
+                </div>
+              @endif
+            @endforeach
+          </div>
         </div>
       </div>
     </div>

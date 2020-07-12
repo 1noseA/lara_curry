@@ -84,3 +84,9 @@ footer a:hover {
   color: rgba(0, 0, 0, 0.6);
   text-decoration: none;
 }
+
+.product-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
