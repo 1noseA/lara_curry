@@ -37,8 +37,8 @@
               @if ($product->category === 2)
                 <div class="card col-md-4">
                   <a href="/product/{{$product->id}}">
-                  <img class="card-img" src="/img/nan.png" alt="カードの画像"></a>
-                  {{-- <p><img src="../../uploads/{{ $product->image }}"></p> --}}
+                  {{-- <img class="card-img" src="/img/nan.png" alt="カードの画像"> --}}
+                  <p><img src="../../uploads/{{ $product->image }}"></p></a>
                   <div class="card-body">
                     <p>{{ $product->name }}</p>
                     <p>¥{{ $product->price }}</p>
@@ -54,8 +54,8 @@
               @if ($product->category === 3)
                 <div class="card col-md-4">
                   <a href="/product/{{$product->id}}">
-                  <img class="card-img" src="/img/salad.png" alt="カードの画像"></a>
-                  {{-- <p><img src="../../uploads/{{ $product->image }}"></p> --}}
+                  {{-- <img class="card-img" src="/img/salad.png" alt="カードの画像"></a> --}}
+                  <img class="card-img" src="../../uploads/{{ $product->image }}"></a>
                   <div class="card-body">
                     <p>{{ $product->name }}</p>
                     <p>¥{{ $product->price }}</p>

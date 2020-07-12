@@ -4,15 +4,15 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 my-5">
-      {{-- <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="file" name="image">
-      </form>  --}}
+      {{-- </form>  --}}
     </div>
 
     <div class="col-md-6 my-5">
-      <form action="/product" method="post">
-        @csrf
+      {{-- <form action="/product" method="post"> --}}
+        {{-- @csrf --}}
         <div class="form-group">
           <label for="category">カテゴリー</label>
           <select class="form-control" id="category" name="category">
