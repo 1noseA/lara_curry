@@ -15,7 +15,9 @@
         <p>商品名　：{{ $product->name }}</p>
         <p>値段　　： ¥{{ $product->price }}</p>
         <p>商品説明：{{ $product->text }}</p>
+        @if ($product->category == 1)
         <p>辛さ　　：{{ $product->hot_label }}</p>
+        @endif
       </div>
       <div class="mx-auto">
         <button class="btn btn-add my-5 mr-3">これに決めた</button>
