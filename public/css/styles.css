@@ -66,6 +66,11 @@ a.nav-item:hover {
   color: #fff;
 }
 
+.shop-map img {
+  width: 540px;
+  height: 300px;
+}
+
 footer {
   background: #bb5520;
   height: 4rem;
@@ -78,4 +83,10 @@ footer a {
 footer a:hover {
   color: rgba(0, 0, 0, 0.6);
   text-decoration: none;
+}
+
+.product-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  
 }
