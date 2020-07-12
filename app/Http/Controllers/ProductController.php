@@ -21,7 +21,9 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('products.create');
+        $category = config('category');
+        $hot = config('hot');
+        return view('products.create')->with(['category' =>$category, 'hot'=>$hot]);
     }
 
     public function store(Request $request)

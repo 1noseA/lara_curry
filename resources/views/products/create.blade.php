@@ -15,7 +15,11 @@
         @csrf
         <div>
           <label for="category">カテゴリー</label>
-          <input type="text" name="category">
+          <select>
+            @foreach(config('category') as $key => $category)
+              <option value="{{ $key }}">{{ $category['label'] }}</option>
+            @endforeach
+          </select>
         </div>
         <div>
           <label for="name">商品名　　</label>
@@ -31,7 +35,14 @@
         </div>
         <div>
           <label for="hot">辛さ　　　</label>
-          <input type="text" name="hot">
+          <select>
+            @foreach(config('hot') as $key => $hot)
+              <option value="{{ $key }}">{{ $hot['label'] }}</option>
+            @endforeach
+          </select>
+        </div>
+        <div>
+          <input type="submit" value="登録" class="btn btn-add">
         </div>
       </form>
     </div>
