@@ -20,8 +20,12 @@
               @if ($product->category === 1)
                 <div class="card col-md-4">
                   <a href="/product/{{$product->id}}">
-                  <img class="card-img" src="/img/curry_pot.png" alt="カードの画像"></a>
-                  {{-- <p><img src="../../uploads/{{ $product->image }}"></p> --}}
+                    @if ($product->image == null)
+                      <img class="card-img" src="/img/curry_pot.png">
+                    @else
+                      <img class="card-img" src="../../uploads/{{ $product->image }}">
+                    @endif
+                  </a>
                   <div class="card-body">
                     <p>{{ $product->name }}</p>
                     <p>¥{{ $product->price }}</p>
@@ -37,8 +41,12 @@
               @if ($product->category === 2)
                 <div class="card col-md-4">
                   <a href="/product/{{$product->id}}">
-                  {{-- <img class="card-img" src="/img/nan.png" alt="カードの画像"> --}}
-                  <p><img src="../../uploads/{{ $product->image }}"></p></a>
+                    @if ($product->image == null)
+                      <img class="card-img" src="/img/nan.png">
+                    @else
+                      <img class="card-img" src="../../uploads/{{ $product->image }}">
+                    @endif
+                  </a>
                   <div class="card-body">
                     <p>{{ $product->name }}</p>
                     <p>¥{{ $product->price }}</p>
@@ -54,8 +62,12 @@
               @if ($product->category === 3)
                 <div class="card col-md-4">
                   <a href="/product/{{$product->id}}">
-                  {{-- <img class="card-img" src="/img/salad.png" alt="カードの画像"></a> --}}
-                  <img class="card-img" src="../../uploads/{{ $product->image }}"></a>
+                    @if ($product->image == null)
+                      <img class="card-img" src="/img/salad.png">
+                    @else
+                      <img class="card-img" src="../../uploads/{{ $product->image }}">
+                    @endif
+                  </a>
                   <div class="card-body">
                     <p>{{ $product->name }}</p>
                     <p>¥{{ $product->price }}</p>
@@ -71,8 +83,12 @@
               @if ($product->category === 4)
                 <div class="card col-md-4">
                   <a href="/product/{{$product->id}}">
-                  <img class="card-img" src="/img/drink_lassi.png" alt="カードの画像"></a>
-                  {{-- <p><img src="../../uploads/{{ $product->image }}"></p> --}}
+                    @if ($product->image == null)
+                      <img class="card-img" src="/img/drink_lassi.png">
+                    @else
+                      <img class="card-img" src="../../uploads/{{ $product->image }}">
+                    @endif
+                  </a>
                   <div class="card-body">
                     <p>{{ $product->name }}</p>
                     <p>¥{{ $product->price }}</p>
