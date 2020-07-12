@@ -16,6 +16,7 @@
         <div class="form-group">
           <label for="category">カテゴリー</label>
           <select class="form-control" id="category" name="category">
+            <option value="">--選択してください--</option>
             @foreach(config('category') as $key => $category)
               <option value="{{ $key }}">{{ $category['label'] }}</option>
             @endforeach
@@ -42,7 +43,7 @@
           </select>
         </div>
         <div>
-          <input type="submit" value="登録" class="btn btn-add">
+          <input type="submit" value="登録" class="btn btn-add mt-3">
         </div>
       </form>
     </div>
