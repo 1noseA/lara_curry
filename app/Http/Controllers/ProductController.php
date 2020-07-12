@@ -13,6 +13,12 @@ class ProductController extends Controller
         return view('products/index', ['products' => $products]);
     }
 
+    public function show($id)
+    {
+    $product = Product::find($id);
+    return view('products.show', ['product' => $product]);
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, Product::$rules);

@@ -19,7 +19,8 @@
             @foreach ($products as $product)
               @if ($product->category === 1)
                 <div class="card col-md-4">
-                  <img class="card-img" src="/img/curry_pot.png" alt="カードの画像">
+                  <a href="/product/{{$product->id}}">
+                  <img class="card-img" src="/img/curry_pot.png" alt="カードの画像"></a>
                   {{-- <p><img src="../../uploads/{{ $product->image }}"></p> --}}
                   <div class="card-body">
                     <p>{{ $product->name }}</p>
@@ -35,7 +36,8 @@
             @foreach ($products as $product)
               @if ($product->category === 2)
                 <div class="card col-md-4">
-                  <img class="card-img" src="/img/nan.png" alt="カードの画像">
+                  <a href="/product/{{$product->id}}">
+                  <img class="card-img" src="/img/nan.png" alt="カードの画像"></a>
                   {{-- <p><img src="../../uploads/{{ $product->image }}"></p> --}}
                   <div class="card-body">
                     <p>{{ $product->name }}</p>
@@ -51,7 +53,8 @@
             @foreach ($products as $product)
               @if ($product->category === 3)
                 <div class="card col-md-4">
-                  <img class="card-img" src="/img/salad.png" alt="カードの画像">
+                  <a href="/product/{{$product->id}}">
+                  <img class="card-img" src="/img/salad.png" alt="カードの画像"></a>
                   {{-- <p><img src="../../uploads/{{ $product->image }}"></p> --}}
                   <div class="card-body">
                     <p>{{ $product->name }}</p>
@@ -67,7 +70,8 @@
             @foreach ($products as $product)
               @if ($product->category === 4)
                 <div class="card col-md-4">
-                  <img class="card-img" src="/img/drink_lassi.png" alt="カードの画像">
+                  <a href="/product/{{$product->id}}">
+                  <img class="card-img" src="/img/drink_lassi.png" alt="カードの画像"></a>
                   {{-- <p><img src="../../uploads/{{ $product->image }}"></p> --}}
                   <div class="card-body">
                     <p>{{ $product->name }}</p>
