@@ -19,6 +19,11 @@ class ProductController extends Controller
     return view('products.show', ['product' => $product]);
     }
 
+    public function create()
+    {
+        return view('products.create');
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, Product::$rules);
