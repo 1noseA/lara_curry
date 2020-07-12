@@ -28,15 +28,15 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, Product::$rules);
+        // $this->validate($request, Product::$rules);
 
-        if ($file = $request->image) {
-            $fileName = time() . $file->getClientOriginalName();
-            $target_path = public_path('uploads/');
-            $file->move($target_path, $fileName);
-        } else {
-            $fileName = "";
-        }
+        // if ($file = $request->image) {
+        //     $fileName = time() . $file->getClientOriginalName();
+        //     $target_path = public_path('uploads/');
+        //     $file->move($target_path, $fileName);
+        // } else {
+        //     $fileName = "";
+        // }
 
         $product = new Product;
         $product->name = $request->name;
@@ -44,9 +44,9 @@ class ProductController extends Controller
         $product->text = $request->text;
         $product->hot = $request->hot;
         $product->category = $request->category;
-        $product->profile_img = $fileName;
+        // $product->image = $fileName;
         $product->save();
 
-        return redirect()->route('products/index');
+        return redirect('/');
     }
 }

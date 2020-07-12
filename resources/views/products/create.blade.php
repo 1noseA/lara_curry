@@ -4,38 +4,38 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 my-5">
-      <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
+      {{-- <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="file" name="image">
-      </form> 
+      </form>  --}}
     </div>
 
     <div class="col-md-6 my-5">
       <form action="/product" method="post">
         @csrf
-        <div>
+        <div class="form-group">
           <label for="category">カテゴリー</label>
-          <select>
+          <select class="form-control" id="category" name="category">
             @foreach(config('category') as $key => $category)
               <option value="{{ $key }}">{{ $category['label'] }}</option>
             @endforeach
           </select>
         </div>
-        <div>
+        <div class="form-group">
           <label for="name">商品名　　</label>
-          <input type="text" name="name">
+          <input class="form-control" type="text" name="name">
         </div>
-        <div>
+        <div class="form-group">
           <label for="price">値段　　　</label>
-          <input type="text" name="price">
+          <input class="form-control" type="text" name="price">
         </div>
-        <div>
+        <div class="form-group">
           <label for="text">商品説明　</label>
-          <input type="text" name="text">
+          <input class="form-control" type="text" name="text">
         </div>
-        <div>
+        <div class="form-group">
           <label for="hot">辛さ　　　</label>
-          <select>
+          <select class="form-control" id="hot" name="hot">
             @foreach(config('hot') as $key => $hot)
               <option value="{{ $key }}">{{ $hot['label'] }}</option>
             @endforeach
