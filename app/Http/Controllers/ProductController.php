@@ -15,7 +15,7 @@ class ProductController extends Controller
     {
         $this->validate($request, Product::$rules);
 
-        if ($file = $request->product_img) {
+        if ($file = $request->image) {
             $fileName = time() . $file->getClientOriginalName();
             $target_path = public_path('uploads/');
             $file->move($target_path, $fileName);

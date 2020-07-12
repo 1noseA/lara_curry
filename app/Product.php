@@ -14,6 +14,6 @@ class Product extends Model
         'text' => 'required|max: 100',
         'hot' => 'required',
         'category' => 'required',
-        'product_img' => 'image|file',
+        'image' => 'image|file',
     ];
 }
