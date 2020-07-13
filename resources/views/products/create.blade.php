@@ -28,15 +28,15 @@
         </div>
         <div class="form-group">
           <label for="name">商品名　　</label>
-          <input class="form-control" type="text" name="name">
+          <input class="form-control" type="text" name="name" value="{{ old('name') }}" >
         </div>
         <div class="form-group">
           <label for="price">値段　　　</label>
-          <input class="form-control" type="text" name="price">
+          <input class="form-control" type="text" name="price" value="{{ old('price') }}" >
         </div>
         <div class="form-group">
           <label for="text">商品説明　</label>
-          <input class="form-control" type="text" name="text">
+          <input class="form-control" type="text" name="text" value="{{ old('text') }}" >
         </div>
         <div class="form-group">
           <label for="hot">辛さ　　　</label>
