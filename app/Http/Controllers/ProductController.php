@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Http\Requests\CreateProduct;
 
 class ProductController extends Controller
 {
@@ -28,10 +29,8 @@ class ProductController extends Controller
         return view('products.create')->with(['category' =>$category, 'hot'=>$hot]);
     }
 
-    public function store(Request $request)
+    public function store(CreateProduct $request)
     {
-        $this->validate($request, Product::$rules);
-
         if ($file = $request->image) {
             $fileName = time() . $file->getClientOriginalName();
             $target_path = public_path('uploads/');

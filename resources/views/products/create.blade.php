@@ -4,6 +4,13 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 my-5">
+      @if($errors->any())
+        <div class="alert alert-danger">
+          @foreach($errors->all() as $message)
+            <p>{{ $message }}</p>
+          @endforeach
+        </div>
+      @endif
       <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="file" name="image">
