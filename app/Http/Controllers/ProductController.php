@@ -57,10 +57,8 @@ class ProductController extends Controller
         return view('products.edit', ['product' => $product]);
     }
 
-    public function update(Request $request, $id)
+    public function update(CreateProduct $request, $id)
     {
-        $this->validate($request, Product::$rules);
-
         if ($file = $request->image) {
             $fileName = time() . $file->getClientOriginalName();
             $target_path = public_path('uploads/');

@@ -27,7 +27,7 @@ class CreateProduct extends FormRequest
         return [
             'category' => 'required',
             'name' => 'required|max: 20',
-            'price' => 'required',
+            'price' => 'required|integer',
             'text' => 'required|max: 100',
             'hot' => 'required',
             'image' => 'image|file',
