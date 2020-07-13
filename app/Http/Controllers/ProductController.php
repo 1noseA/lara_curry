@@ -69,7 +69,7 @@ class ProductController extends Controller
         } else {
             $fileName = "";
         }
-        
+
         $product = Product::find($id);
         $product->name = $request->name;
         $product->price = $request->price;
@@ -79,5 +79,12 @@ class ProductController extends Controller
         $product->image = $fileName;
         $product->save();
         return redirect("/product/".$id);
+    }
+
+    public function destroy($id)
+    {
+        $product = Product::find($id);
+        $product->delete();
+        return redirect('/');
     }
 }

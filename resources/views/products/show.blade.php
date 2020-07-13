@@ -22,6 +22,12 @@
       <div class="mx-auto">
         <button class="btn btn-add my-5 mr-3">これに決めた</button>
         <a class="btn btn-add my-5" href="/">戻る</a>
+        {{-- 削除確認
+        <form action="/product/{{$product->id}}" method="post">
+          @csrf
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" name="" value="削除する">
+        </form> --}}
       </div>
     </div>
   </div>
