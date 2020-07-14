@@ -8,30 +8,20 @@ use App\Cart;
 
 class CartController extends Controller
 {
-    public function myCart()
+    public function index()
     {
-        $my_carts = Cart::all();
-        return view('carts.mycart', compact('my_carts'));
+        $carts = Cart::where('user_id', Auth::user()->id)->get();
+        return view('carts.index', compact('carts'));
     }
 
-    public function addCart(Request $request)
+    public function store(Request $request)
     {
-        // ログイン状態のユーザーのidを取得
-        $user_id = Auth::id(); 
-        $product_id = $request->product_id;
-
-        // product_idとuser_idが全く同じレコードが存在しないか確認
-        $cart_add = Cart::firstOrCreate(['product_id' => $product_id, 'user_id' => $user_id]);
-
-        if($cart_add->wasRecentlyCreated){
-            $message = 'カートに追加しました';
+        $cart = Cart::where('user_id', $request['user_id'])->where('product_id', $request['product_id'])->first();
+        if (isset($cart)) {
+            $cart->update(['quantity' => $cart->quantity + $request['quantity']]);
+        } else{
+            $cart = Cart::create(['user_id' =>$request['user_id'], 'product_id' => $request['product_id'], 'quantity' =>$request['quantity']]);
         }
-        else{
-            $message = 'カートに登録済みです';
-        }
-
-        $my_carts = Cart::where('user_id', $user_id)->get();
-
-        return view('carts/mycart', compact('my_carts', 'message'));
+        return view('carts/index');
     }
 }
