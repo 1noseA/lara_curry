@@ -19,9 +19,20 @@ class CartController extends Controller
         $cart = new Cart;
         $cart->user_id = Auth::user()->id;
         $cart->product_id = $request->product_id;
-        $cart->quantity = $request->quantity;
-        $cart->save();
-        return redirect('/cart');
+        
+        $cart_info=Cart::firstOrCreate(['product_id' => $cart->product_id, 'user_id' => $cart->user_id]);
+
+        if($cart_info->wasRecentlyCreated){
+            $cart->quantity = $request->quantity;
+            $cart->save();
+            return redirect('/cart');
+            $message = '注文リストに追加しました';
+        }
+        else{
+            $cart->quantity+=$request->quantity;
+            $cart->save();
+            return redirect('/cart');
+        }
     }
 
     public function destroy(Cart $cart)
