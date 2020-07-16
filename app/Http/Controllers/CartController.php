@@ -21,15 +21,13 @@ class CartController extends Controller
         $cart->product_id = $request->product_id;
         $cart->quantity = $request->quantity;
         $cart->save();
-        $carts = Cart::where('user_id', Auth::user()->id)->get();
-        return view('carts.index', compact('carts'));
+        return redirect('/cart');
     }
 
     public function destroy(Cart $cart)
     {
         // $cart = Cart::find($id);
         $cart->delete();
-        $carts = Cart::where('user_id', Auth::user()->id)->get();
-        return view('carts.index', compact('carts'));
+        return redirect('/cart');
     }
 }
