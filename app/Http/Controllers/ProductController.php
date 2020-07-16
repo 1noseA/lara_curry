@@ -11,7 +11,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('products/index', ['products' => $products]);
+        return view('products.index', ['products' => $products]);
     }
 
     public function show($id)
@@ -75,7 +75,7 @@ class ProductController extends Controller
         $product->category = $request->category;
         $product->image = $fileName;
         $product->save();
-        return redirect("/product/".$id);
+        return redirect("/product".$id);
     }
 
     public function destroy($id)
