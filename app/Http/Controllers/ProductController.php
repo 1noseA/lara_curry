@@ -75,7 +75,7 @@ class ProductController extends Controller
         $product->category = $request->category;
         $product->image = $fileName;
         $product->save();
-        return redirect("/product/".$id);
+        return redirect("/product".$id);
     }
 
     public function destroy($id)

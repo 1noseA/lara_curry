@@ -24,4 +24,12 @@ class CartController extends Controller
         $carts = Cart::where('user_id', Auth::user()->id)->get();
         return view('carts.index', compact('carts'));
     }
+
+    public function destroy(Cart $cart)
+    {
+        // $cart = Cart::find($id);
+        $cart->delete();
+        $carts = Cart::where('user_id', Auth::user()->id)->get();
+        return view('carts.index', compact('carts'));
+    }
 }
