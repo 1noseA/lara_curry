@@ -14,7 +14,7 @@ class CartController extends Controller
         return view('carts.index', compact('carts'));
     }
 
-    public function store(Request $request)
+    public function add(Request $request)
     {
         $cart = new Cart;
         $cart->user_id = Auth::user()->id;

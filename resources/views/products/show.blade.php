@@ -20,7 +20,7 @@
         @endif
       </div>
       <div class="mx-auto">
-        <form action="/cart" method="post">
+        <form action="/cart/add" method="post">
           @csrf
           <div class="">
             <label for="quantity">個数</label>
