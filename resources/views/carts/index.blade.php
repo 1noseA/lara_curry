@@ -4,14 +4,21 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 mx-auto my-5">
-      <h3 class="text-center">{{ Auth::user()->name }}さんのカートの中身</h3>
-        <div class="">
+      <h3 class="text-center mb-3">{{ Auth::user()->name }}さんの注文リスト</h3>
+        <table class="table">
+          <tr>
+            <th>商品名</th>
+            <th>個数</th>
+            <th>小計</th>
+          </tr>
           @foreach($carts as $cart)
-            {{$cart->product_id}}<br>
-            {{$cart->user_id}}<br>
-            {{$cart->quantity}}<br>
+          <tr>
+            <td>{{ $cart->product->name }}</td>
+            <td>{{ $cart->quantity }}</td>
+            <td>{{ $cart->product->price }}</td>
+          </tr>
           @endforeach
-        </div>
+        </table>
     </div>
   </div>
 </div>

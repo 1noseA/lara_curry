@@ -21,4 +21,9 @@ class Product extends Model
 
         return config('hot')[$hot_name]['label'];
     }
+
+    public function carts()
+    {
+        return $this->hasMany('App\Cart');
+    }
 }
