@@ -16,12 +16,12 @@ class CartController extends Controller
 
     public function store(Request $request)
     {
-        $cart = Cart::where('user_id', Auth::user()->id)->where('product_id', $request['product_id'])->first();
-        if (isset($cart)) {
-            $cart->update(['quantity' => $cart->quantity + $request['quantity']]);
-        } else{
-            $cart = Cart::create(['user_id' => Auth::user()->id, 'product_id' => $request['product_id'], 'quantity' =>$request['quantity']]);
-        }
-        return view('carts.index');
+        $cart = new Cart;
+        $cart->user_id = Auth::user()->id;
+        $cart->product_id = $request->product_id;
+        $cart->quantity = $request->quantity;
+        $cart->save();
+        $carts = Cart::where('user_id', Auth::user()->id)->get();
+        return view('carts.index', compact('carts'));
     }
 }
