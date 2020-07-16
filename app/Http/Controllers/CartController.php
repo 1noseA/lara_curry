@@ -10,29 +10,26 @@ class CartController extends Controller
 {
     public function index()
     {
-        $carts = Cart::where('user_id', Auth::user()->id)->get();
+        $carts = Cart::where('user_id', Auth::user()->id)->where('product_id', $request['product_id'])->get();
         return view('carts.index', compact('carts'));
     }
 
     public function add(Request $request)
     {
         $cart = new Cart;
-        $cart->user_id = Auth::user()->id;
-        $cart->product_id = $request->product_id;
-        
-        $cart_info=Cart::firstOrCreate(['product_id' => $cart->product_id, 'user_id' => $cart->user_id]);
-
-        if($cart_info->wasRecentlyCreated){
+        $cart->user_id = Auth::user();
+        // $cart->product_id = $request->product_id;
+        if($request->product_id == $product_id){
+            $cart->quantity += $request->quantity;
+            $cart->update();
+            $message = '個数を追加しました';
+        } else {
             $cart->quantity = $request->quantity;
             $cart->save();
-            return redirect('/cart');
             $message = '注文リストに追加しました';
         }
-        else{
-            $cart->quantity+=$request->quantity;
-            $cart->save();
-            return redirect('/cart');
-        }
+        $carts = Cart::where('user_id', Auth::user()->id)->where('product_id', $request['product_id'])->get();
+        return view('carts.index',compact('carts' , 'message'));
     }
 
     public function destroy(Cart $cart)
