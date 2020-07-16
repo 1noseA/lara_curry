@@ -9,6 +9,7 @@
           @foreach($carts as $cart)
             {{$cart->product_id}}<br>
             {{$cart->user_id}}<br>
+            {{$cart->quantity}}<br>
           @endforeach
         </div>
     </div>

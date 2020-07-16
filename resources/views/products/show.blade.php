@@ -20,10 +20,14 @@
         @endif
       </div>
       <div class="mx-auto">
-        <form action="/mycart" method="post">
+        <form action="/cart" method="post">
           @csrf
+          <div class="">
+            <label for="quantity">個数</label>
+            <input type="text" name="quantity">個
+          </div>
           <input type="hidden" name="product_id" value="{{ $product->id }}">
-          <input type="submit" class="btn btn-add my-5 mr-3"　value="これに決めた！">
+          <input type="submit" value="これに決めた！" class="btn btn-add my-5 mr-3">
         </form>
         <a class="btn btn-add my-5" href="/">戻る</a>
         {{-- 削除確認
