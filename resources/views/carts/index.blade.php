@@ -15,7 +15,7 @@
           <tr>
             <td>{{ $cart->product->name }}</td>
             <td>{{ $cart->quantity }}</td>
-            <td>{{ $cart->product->price }}</td>
+            <td>￥{{ $cart->subtotal() }}（￥{{ $cart->tax() }}）</td>
           </tr>
           @endforeach
         </table>

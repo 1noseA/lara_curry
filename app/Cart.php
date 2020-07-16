@@ -14,8 +14,19 @@ class Cart extends Model
     {
         return $this->belongsTo('App\Product');
     }
+
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function subtotal()
+    {
+        return $this->product->price * $this->quantity;
+    }
+
+    public function tax()
+    {
+        return $this->subtotal() * 1.08;
     }
 }
