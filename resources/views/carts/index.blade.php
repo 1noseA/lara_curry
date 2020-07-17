@@ -30,12 +30,15 @@
             </tr>
             @endforeach
           </table>
-          <p>合計金額：　{{ $subtotals }}</p>
+          <p class="text-center">合計金額　：　￥{{ $subtotals }}（￥{{ $totalprice }}）</p>
+          {{-- 注文確定ボタン --}}
         @else
           <p>商品はありません</p>
         @endif
           
-        <button type="button" onclick="history.back()" class="btn btn-add">戻る</button>
+        <div class="text-center">
+          <button type="button" onclick="history.back()" class="btn btn-add">戻る</button>
+        </div>
     </div>
   </div>
 </div>

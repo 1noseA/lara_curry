@@ -13,7 +13,8 @@ class CartController extends Controller
     {
         $carts = Cart::where('user_id', Auth::user()->id)->get();
         $subtotals = $this->subtotals($carts);
-        return view('carts.index', compact('carts', 'subtotals'));
+        $totalprice = $this->totalprice($carts);
+        return view('carts.index', compact('carts', 'subtotals', 'totalprice'));
     }
 
     private function subtotals($carts) 
@@ -24,6 +25,12 @@ class CartController extends Controller
         }
         return $result;
     }
+
+    private function totalprice($carts) {
+        $result = $this->subtotals($carts) * 1.08;
+        return $result;
+    }
+
 
     public function add(Request $request)
     {
