@@ -45,22 +45,21 @@ class CartController extends Controller
             ],
             [
             'quantity' => $request->post('quantity')
-            // 'quantity' => \DB::raw('quantity + ' . $request->post('quantity')),
             ]
         );
-        return redirect('/cart')->with('flash_message', 'カートに追加しました');
+        return redirect('/cart')->with('flash_message', '商品を追加しました');
     }
 
     public function update(Request $request, Cart $cart)
     {
         $cart->quantity = $request->post('quantity');
         $cart->save();
-        return redirect('/cart');
+        return redirect('/cart')->with('flash_message', '個数を変更しました');
     }
 
     public function destroy(Cart $cart)
     {
         $cart->delete();
-        return redirect('/cart');
+        return redirect('/cart')->with('flash_message', '商品を削除しました');
     }
 }

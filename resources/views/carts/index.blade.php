@@ -10,7 +10,6 @@
             {{ session('flash_message') }}
         </div>
       @endif
-      {{-- <p class="text-center">{{ $message }}</p> --}}
         @if ($carts->isNotEmpty())
         <table class="table">
           <tr>
