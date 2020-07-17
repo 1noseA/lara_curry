@@ -19,7 +19,7 @@
         <p>辛さ　　：{{ $product->hot_label }}</p>
         @endif
     
-        <form action="/cart/add" method="post">
+        <form action="/cart" method="post">
           @csrf
           <div class="">
             <label for="quantity">個数</label>

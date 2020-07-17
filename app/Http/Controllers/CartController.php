@@ -36,7 +36,7 @@ class CartController extends Controller
     }
 
 
-    public function add(Request $request)
+    public function store(Request $request)
     {
         $user_id = Auth::id();
         $product_id = $request->post('product_id');
