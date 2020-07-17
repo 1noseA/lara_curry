@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-md-10 mx-auto my-5">
       <h3 class="text-center mb-3">{{ Auth::user()->name }}さんの注文リスト</h3>
-      <p class="text-center">{{ $message }}</p>
+      {{-- <p class="text-center">{{ $message }}</p> --}}
         @if (isset($carts))
         <table class="table">
           <tr>
@@ -30,6 +30,7 @@
             </tr>
             @endforeach
           </table>
+          <p>合計金額：　{{ $subtotals }}</p>
         @else
           <p>商品はありません</p>
         @endif

@@ -22,11 +22,14 @@ class Cart extends Model
 
     public function subtotal()
     {
-        return $this->product->price * $this->quantity;
+        $result = $this->product->price * $this->quantity;
+        return $result;
     }
 
     public function tax()
     {
         return $this->subtotal() * 1.08;
     }
+    
+    
 }
