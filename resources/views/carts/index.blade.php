@@ -18,7 +18,15 @@
             @foreach($carts as $cart)
             <tr>
               <td>{{ $cart->product->name }}</td>
-              <td>{{ $cart->quantity }}</td>
+              <td>
+                <form method="post" action="/cart/{{ $cart->id }}">
+                  @method('PATCH')
+                  @csrf
+                  <input type="text" name="quantity" value="{{ $cart->quantity }}">
+                  個
+                  <button type="submit" class="btn btn-add">更新</button>
+                </form>
+              </td>
               <td>￥{{ $cart->subtotal() }}（￥{{ $cart->tax() }}）</td>
               <td>
                 <form method="post" action="/cart/{{ $cart->id }}">

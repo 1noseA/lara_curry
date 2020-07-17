@@ -42,6 +42,13 @@ class CartController extends Controller
         return redirect('/cart');
     }
 
+    public function update(Request $request, Cart $cart)
+    {
+        $cart->quantity = $request->post('quantity');
+        $cart->save();
+        return redirect('/cart');
+    }
+
     public function destroy(Cart $cart)
     {
         $cart->delete();
