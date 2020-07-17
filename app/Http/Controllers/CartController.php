@@ -38,21 +38,23 @@ class CartController extends Controller
 
     public function add(Request $request)
     {
-        if (Cart::where([['user_id', Auth::id()],['product_id', $request->post('product_id')]])->exists())
+        $user_id = Auth::id();
+        $product_id = $request->post('product_id');
+        if (Cart::where([['user_id', $user_id],['product_id', $product_id]])->exists())
         {
             $cart = Cart::select('carts.quantity')
-            ->where([['user_id', Auth::id()],['product_id', $request->post('product_id')]])->first();
-            $cartquantity = $cart->quantity +  $request->post('quantity');
+            ->where([['user_id', $user_id],['product_id', $product_id]])->first();
+            $quantity = $cart->quantity +  $request->post('quantity');
         } else {
-            $cartquantity = $request->post('quantity');  
+            $quantity = $request->post('quantity');  
         }       
         Cart::updateOrCreate(
             [
-                'user_id' => Auth::id(),
-                'product_id' => $request->post('product_id'),
+                'user_id' => $user_id,
+                'product_id' => $product_id,
             ],
             [
-                'quantity' => $cartquantity,
+                'quantity' => $quantity,
             ]
         );
         return redirect('/cart')->with('flash_message', '商品を追加しました');
