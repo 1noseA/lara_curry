@@ -45,7 +45,7 @@
         @endif
           
         <div class="text-center">
-          <button type="button" onclick="history.back()" class="btn btn-add">戻る</button>
+          <a class="btn btn-add my-5" href="/">戻る</a>
         </div>
     </div>
   </div>

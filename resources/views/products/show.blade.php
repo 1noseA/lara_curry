@@ -3,7 +3,7 @@
 @section('content')
   <div class="container">
     <div class="row">
-      <div class="col-md-6 mt-5">
+      <div class="col-md-6 my-5">
         @if ($product->image == null)
           <img class="card-img" src="/img/curry_pot.png">
         @else
@@ -13,13 +13,12 @@
       <div class="col-md-6 mt-5 p-5">
         <p>{{ $product->category_label }}</p>
         <p>商品名　：{{ $product->name }}</p>
-        <p>値段　　： ¥{{ $product->price }}</p>
+        <p>値段　　： ￥{{ $product->price }}</p>
         <p>商品説明：{{ $product->text }}</p>
         @if ($product->category == 1)
         <p>辛さ　　：{{ $product->hot_label }}</p>
         @endif
-      </div>
-      <div class="mx-auto">
+    
         <form action="/cart/add" method="post">
           @csrf
           <div class="">
@@ -29,7 +28,7 @@
           <input type="hidden" name="product_id" value="{{ $product->id }}">
           <input type="submit" value="これに決めた！" class="btn btn-add my-5 mr-3">
         </form>
-        <a class="btn btn-add my-5" href="/">戻る</a>
+        <a class="btn btn-add mb-5" href="/">戻る</a>
         {{-- 削除確認
         <form action="/product/{{ $product->id }}" method="post">
           @csrf
