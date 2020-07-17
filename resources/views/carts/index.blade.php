@@ -5,6 +5,11 @@
   <div class="row">
     <div class="col-md-10 mx-auto my-5">
       <h3 class="text-center mb-3">{{ Auth::user()->name }}さんの注文リスト</h3>
+      @if(Session::has('flash_message'))
+        <div class="alert alert-success">
+            {{ session('flash_message') }}
+        </div>
+      @endif
       {{-- <p class="text-center">{{ $message }}</p> --}}
         @if ($carts->isNotEmpty())
         <table class="table">
