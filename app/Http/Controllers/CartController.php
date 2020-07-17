@@ -5,37 +5,72 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Cart;
+use App\Product;
 
 class CartController extends Controller
 {
     public function index()
     {
-        $carts = Cart::where('user_id', Auth::user()->id)->where('product_id', $request['product_id'])->get();
-        return view('carts.index', compact('carts'));
+        // $carts = Cart::where('user_id', Auth::user()->id)->get();
+        $carts = Cart::select('carts.*', 'products.name', 'carts.quantity')
+            ->where('user_id', Auth::id())
+            ->join('products', 'products.id','=','carts.product_id')
+            ->get();
+        $subtotals = $this->subtotals($carts);
+        $totalprice = $this->totalprice($carts);
+        return view('carts.index', compact('carts', 'subtotals', 'totalprice'));
     }
 
-    public function add(Request $request)
+    private function subtotals($carts) 
     {
-        $cart = new Cart;
-        $cart->user_id = Auth::user();
-        // $cart->product_id = $request->product_id;
-        if($request->product_id == $product_id){
-            $cart->quantity += $request->quantity;
-            $cart->update();
-            $message = '個数を追加しました';
-        } else {
-            $cart->quantity = $request->quantity;
-            $cart->save();
-            $message = '注文リストに追加しました';
+        $result = 0;
+        foreach ($carts as $cart) {
+            $result += $cart->subtotal();
         }
-        $carts = Cart::where('user_id', Auth::user()->id)->where('product_id', $request['product_id'])->get();
-        return view('carts.index',compact('carts' , 'message'));
+        return $result;
+    }
+
+    private function totalprice($carts) {
+        $result = round($this->subtotals($carts) * 1.08);
+        return $result;
+    }
+
+
+    public function store(Request $request)
+    {
+        $user_id = Auth::id();
+        $product_id = $request->post('product_id');
+        if (Cart::where([['user_id', $user_id],['product_id', $product_id]])->exists())
+        {
+            $cart = Cart::select('carts.quantity')
+            ->where([['user_id', $user_id],['product_id', $product_id]])->first();
+            $quantity = $cart->quantity +  $request->post('quantity');
+        } else {
+            $quantity = $request->post('quantity');  
+        }       
+        Cart::updateOrCreate(
+            [
+                'user_id' => $user_id,
+                'product_id' => $product_id,
+            ],
+            [
+                'quantity' => $quantity,
+            ]
+        );
+        return redirect('/cart')->with('flash_message', '商品を追加しました');
+
+    }
+
+    public function update(Request $request, Cart $cart)
+    {
+        $cart->quantity = $request->post('quantity');
+        $cart->save();
+        return redirect('/cart')->with('flash_message', '個数を変更しました');
     }
 
     public function destroy(Cart $cart)
     {
-        // $cart = Cart::find($id);
         $cart->delete();
-        return redirect('/cart');
+        return redirect('/cart')->with('flash_message', '商品を削除しました');
     }
 }

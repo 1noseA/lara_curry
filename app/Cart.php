@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cart extends Model
 {
     protected $fillable = [
-        'product_id', 'user_id',
+        'product_id', 'user_id', 'quantity'
     ];
 
     public function product()
@@ -22,11 +22,15 @@ class Cart extends Model
 
     public function subtotal()
     {
-        return $this->product->price * $this->quantity;
+        $result = $this->product->price * $this->quantity;
+        return $result;
     }
 
     public function tax()
     {
-        return $this->subtotal() * 1.08;
+        $result = round($this->subtotal() * 1.08);
+        return $result;
     }
+    
+    
 }

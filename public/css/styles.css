@@ -100,3 +100,8 @@ body {
   width: 540px;
   height: 300px;
 }
+
+/* Cart */
+.qty-form {
+  width: 50px;
+}

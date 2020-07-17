@@ -24,6 +24,3 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('product', 'ProductController');
 
 Route::resource('cart', 'CartController')->middleware('auth');
-
-Route::post('/cart/add', 'CartController@add')->name('cart.add')->middleware('auth');
-
