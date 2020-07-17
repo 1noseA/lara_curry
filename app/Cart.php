@@ -28,7 +28,8 @@ class Cart extends Model
 
     public function tax()
     {
-        return $this->subtotal() * 1.08;
+        $result = round($this->subtotal() * 1.08);
+        return $result;
     }
     
     
