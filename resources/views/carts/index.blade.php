@@ -13,7 +13,7 @@
         @if ($carts->isNotEmpty())
         <table class="table">
           <tr>
-            <th>商品名</th>
+            <th class="w-25">商品名</th>
             <th>個数</th>
             <th>小計</th>
             <th></th>
@@ -26,7 +26,7 @@
                 <form method="post" action="/cart/{{ $cart->id }}">
                   @method('PATCH')
                   @csrf
-                  <input type="text" name="quantity" value="{{ $cart->quantity }}">
+                  <input type="text" name="quantity" value="{{ $cart->quantity }}" class="qty-form">
                   個
                   <button type="submit" class="btn btn-add">更新</button>
                 </form>
