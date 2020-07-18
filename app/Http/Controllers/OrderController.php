@@ -11,7 +11,7 @@ class OrderController extends Controller
     // お客様情報入力画面表示
     public function create()
     {
-
+        return view('orders.create');
     }
 
     // お客様情報送信
@@ -29,6 +29,6 @@ class OrderController extends Controller
     // 注文商品の表示
     public function show()
     {
-        
+
     }
 }
