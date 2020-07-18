@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Cart;
 use App\Product;
+use App\Http\Requests\CreateCart;
 
 class CartController extends Controller
 {
@@ -36,7 +37,7 @@ class CartController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(CreateCart $request)
     {
         $user_id = Auth::id();
         $product_id = $request->post('product_id');
@@ -61,7 +62,7 @@ class CartController extends Controller
 
     }
 
-    public function update(Request $request, Cart $cart)
+    public function update(CreateCart $request, Cart $cart)
     {
         $cart->quantity = $request->post('quantity');
         $cart->save();
@@ -72,15 +73,5 @@ class CartController extends Controller
     {
         $cart->delete();
         return redirect('/cart')->with('flash_message', '商品を削除しました');
-    }
-
-    public function alldelete()
-    {
-        $carts = Cart::select('carts.*', 'products.name', 'carts.quantity')
-            ->where('user_id', Auth::id())
-            ->join('products', 'products.id','=','carts.product_id')
-            ->get();
-        $carts->session()->flush();
-        return redirect('/cart')->with('flash_message', '全て削除しました');
     }
 }

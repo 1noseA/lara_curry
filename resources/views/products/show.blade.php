@@ -19,6 +19,14 @@
         <p>辛さ　　：{{ $product->hot_label }}</p>
         @endif
     
+        {{-- エラーメッセージ --}}
+        @if($errors->any())
+          <div class="alert alert-danger">
+            @foreach($errors->all() as $message)
+              <p>{{ $message }}</p>
+            @endforeach
+          </div>
+        @endif
         <form action="/cart" method="post">
           @csrf
           <div class="">
