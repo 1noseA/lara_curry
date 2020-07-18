@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Cart;
 use App\Product;
+use App\Http\Requests\CreateCart;
 
 class CartController extends Controller
 {
     public function index()
     {
-        // $carts = Cart::where('user_id', Auth::user()->id)->get();
+        // $carts = Cart::where('user_id', Auth::id())->get();
         $carts = Cart::select('carts.*', 'products.name', 'carts.quantity')
             ->where('user_id', Auth::id())
             ->join('products', 'products.id','=','carts.product_id')
@@ -36,7 +37,7 @@ class CartController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(CreateCart $request)
     {
         $user_id = Auth::id();
         $product_id = $request->post('product_id');
@@ -61,7 +62,7 @@ class CartController extends Controller
 
     }
 
-    public function update(Request $request, Cart $cart)
+    public function update(CreateCart $request, Cart $cart)
     {
         $cart->quantity = $request->post('quantity');
         $cart->save();

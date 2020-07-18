@@ -5,12 +5,27 @@
   <div class="row">
     <div class="col-md-10 mx-auto my-5">
       <h3 class="text-center mb-3">{{ Auth::user()->name }}さんの注文リスト</h3>
-      @if(Session::has('flash_message'))
-        <div class="alert alert-success">
-            {{ session('flash_message') }}
-        </div>
-      @endif
+        {{-- サクセスメッセージ --}}
+        @if(Session::has('flash_message'))
+          <div class="alert alert-success">
+              {{ session('flash_message') }}
+          </div>
+        @endif
+        {{-- エラーメッセージ --}}
+        @if($errors->any())
+          <div class="alert alert-danger">
+            @foreach($errors->all() as $message)
+              <p>{{ $message }}</p>
+            @endforeach
+          </div>
+        @endif
+        {{-- 商品があるときとないときで条件分岐 --}}
         @if ($carts->isNotEmpty())
+        {{-- <form method="post" action="/cart/delete">
+          @csrf
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="全削除" class="btn btn-add">
+        </form> --}}
         <table class="table">
           <tr>
             <th class="w-25">商品名</th>
