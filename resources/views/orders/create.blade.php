@@ -8,20 +8,23 @@
       <form method="post" action="/order">
         @csrf
         <div class="form-group">
+          <span class="required rounded">必須</span>
           <label for="name">受け取り者の名前　　</label>
           <input class="form-control" type="text" name="name" value="{{ old('name') }}" >
         </div>
         <div class="form-group">
+          <span class="required rounded">必須</span>
           <label for="price">電話番号</label>
           <input class="form-control" type="text" name="tel" value="{{ old('tel') }}" >
         </div>
         <div class="form-group">
-          <div>受け取り日
+          <span class="required rounded">必須</span>
+          <label for="date">受け取り日</label>
             <input class="form-control" type="text" name="date" value="{{ old('date') }}" >
-          </div>
         </div>
         <div class="form-group">
-          <div>受け取り時間
+          <span class="required rounded">必須</span>
+          <label for="time">受け取り時間</label>
            <input class="form-control" type="text" name="time" value="{{ old('time') }}" >
         </div>
         <div class="text-center">

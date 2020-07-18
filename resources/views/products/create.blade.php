@@ -18,6 +18,7 @@
 
     <div class="col-md-5 mx-auto my-5">
         <div class="form-group">
+          <span class="required rounded">必須</span>
           <label for="category">カテゴリー</label>
           <select class="form-control" id="category" name="category">
             <option value="">--選択してください--</option>
@@ -27,14 +28,17 @@
           </select>
         </div>
         <div class="form-group">
+          <span class="required rounded">必須</span>
           <label for="name">商品名</label>
           <input class="form-control" type="text" name="name" value="{{ old('name') }}" >
         </div>
         <div class="form-group">
+          <span class="required rounded">必須</span>
           <label for="price">値段</label>
           <input class="form-control" type="text" name="price" value="{{ old('price') }}" >
         </div>
         <div class="form-group">
+          <span class="required rounded">必須</span>
           <label for="text">商品説明</label>
           <input class="form-control" type="text" name="text" value="{{ old('text') }}" >
         </div>
