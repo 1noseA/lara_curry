@@ -16,6 +16,8 @@
     <div class="navbar-control">
       <a class="nav-item mr-3" href="/shop">店舗情報</a>
       @if(Auth::check())
+        <a class="nav-item mr-3" href="/cart">注文リスト</a>
+        <a class="nav-item mr-3" href="/order">注文履歴</a>
         <a class="nav-item" href="{{ route('logout') }}"
           onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
