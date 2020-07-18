@@ -11,6 +11,11 @@
         </div>
       @endif
         @if ($carts->isNotEmpty())
+        <form method="post" action="/cart/delete">
+          @csrf
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="全削除" class="btn btn-add">
+        </form>
         <table class="table">
           <tr>
             <th class="w-25">商品名</th>

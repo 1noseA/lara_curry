@@ -11,7 +11,7 @@ class CartController extends Controller
 {
     public function index()
     {
-        // $carts = Cart::where('user_id', Auth::user()->id)->get();
+        // $carts = Cart::where('user_id', Auth::id())->get();
         $carts = Cart::select('carts.*', 'products.name', 'carts.quantity')
             ->where('user_id', Auth::id())
             ->join('products', 'products.id','=','carts.product_id')
@@ -72,5 +72,15 @@ class CartController extends Controller
     {
         $cart->delete();
         return redirect('/cart')->with('flash_message', '商品を削除しました');
+    }
+
+    public function alldelete()
+    {
+        $carts = Cart::select('carts.*', 'products.name', 'carts.quantity')
+            ->where('user_id', Auth::id())
+            ->join('products', 'products.id','=','carts.product_id')
+            ->get();
+        $carts->session()->flush();
+        return redirect('/cart')->with('flash_message', '全て削除しました');
     }
 }
