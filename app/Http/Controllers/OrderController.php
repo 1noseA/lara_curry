@@ -13,10 +13,10 @@ class OrderController extends Controller
     // お客様情報入力画面表示
     public function create()
     {
-        // $carts = Cart::select('carts.*', 'products.name', 'carts.quantity')
-        //     ->where('user_id', Auth::id())
-        //     ->join('products', 'products.id','=','carts.product_id')
-        //     ->get();
+        $carts = Cart::select('carts.*', 'products.name', 'carts.quantity')
+            ->where('user_id', Auth::id())
+            ->join('products', 'products.id','=','carts.product_id')
+            ->get();
         $total = 1;
         return view('orders.create', compact('total'));
     }
@@ -29,7 +29,7 @@ class OrderController extends Controller
             ->join('products', 'products.id','=','carts.product_id')
             ->get();
         $order = new Order($request->all());
-        return view('orders.confirm', compact('order'));
+        return view('orders.confirm', compact('order', 'carts'));
     }
 
     // お客様情報送信
