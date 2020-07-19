@@ -32,9 +32,15 @@
           </tr>
             @foreach($carts as $cart)
             <tr>
-              <td>{{ $cart->product->name }}</td>
-              <td>{{ $cart->quantity }}</td>
-              <td>￥{{ $cart->subtotal() }}（￥{{ $cart->tax() }}）</td>
+              <td>{{ $cart->product->name }}
+                <input type="hidden" name="product_id" value="{{ $product_id }}">
+              </td>
+              <td>{{ $cart->quantity }}
+                <input type="hidden" name="quantity" value="{{ $quantity }}">
+              </td>
+              <td>￥{{ $cart->subtotal() }}（￥{{ $cart->tax() }}）
+                <input type="hidden" name="price" value="{{ $price }}">
+              </td>
             </tr>
             @endforeach
           </table>
@@ -48,7 +54,6 @@
   </div>
   <div class="text-center">
     <button name="back" type="submit" value="true" class="btn btn-add my-5 mr-3">情報入力に戻る</button>
-    {{-- <a class="btn btn-add my-5 mr-3" href="/order/create">情報入力に戻る</a> --}}
     <a class="btn btn-add my-5" href="/cart">注文リストに戻る</a>
   </div>
 </div>

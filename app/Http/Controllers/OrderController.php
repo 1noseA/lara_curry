@@ -50,6 +50,7 @@ class OrderController extends Controller
         $time = $request->time;
         $subtotals = $this->subtotals($carts);
         $total = $this->total($carts);
+        $price = $carts->tax();
         $input_data = [
             'name' => $name,
             'tel' => $tel,
@@ -66,13 +67,15 @@ class OrderController extends Controller
         // 戻るボタンが押された場合
         if ($request->post('back')) {
             return redirect('/order/create')->withInput();
-    }
+        }
+        // 注文確定ボタンが押された場合
         if( $request->has('post') ){
+            $order = $request->post('name', 'tel', 'date', 'time', 'total');
+            $product = $request->post('product_id', 'quantity', 'price');
+            $order->products()->attach($product->id);
             Cart::where('user_id', Auth::id())->delete();
             return view('orders.thanks');
         }
-        $request->flash();
-        return $this->index();
     }
 
     // 注文完了画面
