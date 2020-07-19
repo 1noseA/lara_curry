@@ -27,5 +27,5 @@ Route::resource('cart', 'CartController')->middleware('auth');
 
 Route::resource('order', 'OrderController')->middleware('auth');
 
-Route::get('/order/confirm', 'HomeController@confirm')->name('confirm');
-Route::get('/order/thanks', 'HomeController@thanks')->name('thanks');
+Route::post('/order/confirm', 'OrderController@confirm');
+Route::get('/order/thanks', 'OrderController@thanks');

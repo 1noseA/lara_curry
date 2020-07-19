@@ -31,7 +31,7 @@ class CartController extends Controller
         return $result;
     }
 
-    public function totalprice($carts) {
+    private function totalprice($carts) {
         $result = round($this->subtotals($carts) * 1.08);
         return $result;
     }

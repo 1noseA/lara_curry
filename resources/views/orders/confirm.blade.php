@@ -14,21 +14,19 @@
   <div class="row">
     <div class="col-md-6 mx-auto mb-5">
       {{-- 注文リストの確認 --}}
-      <table class="table">
+      {{-- <table class="table">
         <tr>
           <th class="w-25">商品名</th>
           <th>個数</th>
-          <th>小計</th>
         </tr>
           @foreach($carts as $cart)
           <tr>
             <td>{{ $cart->product->name }}</td>
             <td>{{ $cart->quantity }}</td>
-            <td>￥{{ $cart->subtotal() }}（￥{{ $cart->tax() }}）</td>
           </tr>
           @endforeach
         </table>
-        <p class="text-center">合計金額　：　￥{{ $subtotals }}（￥{{ $totalprice }}）</p>
+        <p class="text-center">合計金額　：　￥{{ $order->total }}</p> --}}
     </div>
   </div>
   <div class="text-center">

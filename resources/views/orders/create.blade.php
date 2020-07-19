@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
           <span class="required rounded">必須</span>
-          <label for="price">電話番号</label>
+          <label for="tel">電話番号</label>
           <input class="form-control" type="text" name="tel" value="{{ old('tel') }}" >
         </div>
         <div class="form-group">
