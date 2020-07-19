@@ -17,8 +17,24 @@ class OrderController extends Controller
             ->where('user_id', Auth::id())
             ->join('products', 'products.id','=','carts.product_id')
             ->get();
-        $total = 1;
-        return view('orders.create', compact('total'));
+        $total = $this->total($carts);
+        return view('orders.create', compact('carts', 'total'));
+    }
+
+    // 合計
+    private function subtotals($carts) 
+    {
+        $result = 0;
+        foreach ($carts as $cart) {
+            $result += $cart->subtotal();
+        }
+        return $result;
+    }
+
+    // 税込合計
+    private function total($carts) {
+        $result = round($this->subtotals($carts) * 1.08);
+        return $result;
     }
 
     // 確認画面
@@ -28,12 +44,12 @@ class OrderController extends Controller
             ->where('user_id', Auth::id())
             ->join('products', 'products.id','=','carts.product_id')
             ->get();
-        // $order = new Order($request->all());
         $name = $request->name;
         $tel = $request->tel;
         $date = $request->date;
         $time = $request->time;
-        $total = 1;
+        $subtotals = $this->subtotals($carts);
+        $total = $this->total($carts);
         $input_data = [
             'name' => $name,
             'tel' => $tel,
@@ -41,7 +57,7 @@ class OrderController extends Controller
             'time' => $time,
             'total' => $total
         ];
-        return view('orders.confirm', $input_data, compact('carts'));
+        return view('orders.confirm', $input_data, compact('carts', 'subtotals', 'total'));
     }
 
     // お客様情報送信

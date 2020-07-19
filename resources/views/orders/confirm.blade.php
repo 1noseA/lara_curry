@@ -28,17 +28,17 @@
           <tr>
             <th class="w-50">商品名</th>
             <th>個数</th>
-            {{-- <th>小計</th> --}}
+            <th>小計</th>
           </tr>
             @foreach($carts as $cart)
             <tr>
               <td>{{ $cart->product->name }}</td>
               <td>{{ $cart->quantity }}</td>
-              {{-- <td>￥{{ $cart->subtotal() }}（￥{{ $cart->tax() }}）</td> --}}
+              <td>￥{{ $cart->subtotal() }}（￥{{ $cart->tax() }}）</td>
             </tr>
             @endforeach
           </table>
-        <p class="text-center">合計金額　：　￥{{ $total }}
+        <p class="text-center">合計金額　：　￥{{ $subtotals }}（￥{{ $total }}）
           <input type="hidden" name="total" value="{{ $total }}">
         </p>
     </div>

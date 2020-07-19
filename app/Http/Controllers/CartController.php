@@ -18,10 +18,11 @@ class CartController extends Controller
             ->join('products', 'products.id','=','carts.product_id')
             ->get();
         $subtotals = $this->subtotals($carts);
-        $totalprice = $this->totalprice($carts);
-        return view('carts.index', compact('carts', 'subtotals', 'totalprice'));
+        $total = $this->total($carts);
+        return view('carts.index', compact('carts', 'subtotals', 'total'));
     }
 
+    // 合計
     private function subtotals($carts) 
     {
         $result = 0;
@@ -31,11 +32,11 @@ class CartController extends Controller
         return $result;
     }
 
-    private function totalprice($carts) {
+    // 税込合計
+    private function total($carts) {
         $result = round($this->subtotals($carts) * 1.08);
         return $result;
     }
-
 
     public function store(CreateCart $request)
     {
