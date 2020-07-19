@@ -4,20 +4,20 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 mx-auto my-5">
-      <h3 class="text-center mb-3">ご確認お願いいたします</h3>
+      <h3 class="text-center mb-5">ご確認お願いいたします</h3>
       <form method="post" action="/order">
         @csrf
-      <p>受け取り者　：　{{ $order->name }}
-        <input type="hidden" name="name" value="{{ $order->name }}">
+      <p>受け取り者　：　{{ $name }}
+        <input type="hidden" name="name" value="{{ $name }}">
       </p>
-      <p>電話番号　　：　{{ $order->tel }}
-        <input type="hidden" name="tel" value="{{ $order->tel }}">
+      <p>電話番号　　：　{{ $tel }}
+        <input type="hidden" name="tel" value="{{ $tel }}">
       </p>
-      <p>受け取り日　：　{{ $order->date }}
-        <input type="hidden" name="date" value="{{ $order->date }}">
+      <p>受け取り日　：　{{ $date }}
+        <input type="hidden" name="date" value="{{ $date }}">
       </p>
-      <p>受け取り時間：　{{ $order->time }}
-        <input type="hidden" name="time" value="{{ $order->time }}">
+      <p>受け取り時間：　{{ $time }}
+        <input type="hidden" name="time" value="{{ $time }}">
       </p>
     </div>
   </div>
@@ -38,8 +38,8 @@
             </tr>
             @endforeach
           </table>
-        <p class="text-center">合計金額　：　￥{{ $order->total }}
-          <input type="hidden" name="total" value="{{ $order->total }}">
+        <p class="text-center">合計金額　：　￥{{ $total }}
+          <input type="hidden" name="total" value="{{ $total }}">
         </p>
     </div>
   </div>
@@ -47,7 +47,8 @@
     <input type="submit" value="注文を確定する" class="btn btn-add">
   </div>
   <div class="text-center">
-    <a class="btn btn-add my-5 mr-3" href="/order/create">情報入力に戻る</a>
+    <button name="back" type="submit" value="true" class="btn btn-add my-5 mr-3">情報入力に戻る</button>
+    {{-- <a class="btn btn-add my-5 mr-3" href="/order/create">情報入力に戻る</a> --}}
     <a class="btn btn-add my-5" href="/cart">注文リストに戻る</a>
   </div>
 </div>

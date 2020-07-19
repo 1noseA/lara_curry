@@ -28,13 +28,29 @@ class OrderController extends Controller
             ->where('user_id', Auth::id())
             ->join('products', 'products.id','=','carts.product_id')
             ->get();
-        $order = new Order($request->all());
-        return view('orders.confirm', compact('order', 'carts'));
+        // $order = new Order($request->all());
+        $name = $request->name;
+        $tel = $request->tel;
+        $date = $request->date;
+        $time = $request->time;
+        $total = 1;
+        $input_data = [
+            'name' => $name,
+            'tel' => $tel,
+            'date' => $date,
+            'time' => $time,
+            'total' => $total
+        ];
+        return view('orders.confirm', $input_data, compact('carts'));
     }
 
     // お客様情報送信
     public function store(Request $request)
     {
+        // 戻るボタンが押された場合
+        if ($request->post('back')) {
+            return redirect('/order/create')->withInput();
+    }
         if( $request->has('post') ){
             Cart::where('user_id', Auth::id())->delete();
             return view('orders.thanks');
