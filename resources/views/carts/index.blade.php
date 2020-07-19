@@ -57,8 +57,10 @@
             </tr>
             @endforeach
           </table>
-          <p class="text-center">合計金額　：　￥{{ $subtotals }}（￥{{ $totalprice }}）</p>
-          {{-- 注文確定ボタン --}}
+          <p class="text-center">合計金額　：　￥{{ $subtotals }}（￥{{ $total }}）</p>
+          <div class="text-center">
+            <a class="btn btn-add mt-3" href="/order/create">注文する</a>
+          </div>
         @else
           <p>商品はありません</p>
         @endif

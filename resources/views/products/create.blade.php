@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
   <div class="row">
-    <div class="col-md-6 my-5">
+    <div class="col-md-5 my-5">
       @if($errors->any())
         <div class="alert alert-danger">
           @foreach($errors->all() as $message)
@@ -11,13 +11,14 @@
           @endforeach
         </div>
       @endif
-      <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <input type="file" name="image">
     </div>
 
-    <div class="col-md-6 my-5">
+    <div class="col-md-5 mx-auto my-5">
         <div class="form-group">
+          <span class="required rounded">必須</span>
           <label for="category">カテゴリー</label>
           <select class="form-control" id="category" name="category">
             <option value="">--選択してください--</option>
@@ -27,19 +28,22 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="name">商品名　　</label>
+          <span class="required rounded">必須</span>
+          <label for="name">商品名</label>
           <input class="form-control" type="text" name="name" value="{{ old('name') }}" >
         </div>
         <div class="form-group">
-          <label for="price">値段　　　</label>
+          <span class="required rounded">必須</span>
+          <label for="price">値段</label>
           <input class="form-control" type="text" name="price" value="{{ old('price') }}" >
         </div>
         <div class="form-group">
-          <label for="text">商品説明　</label>
+          <span class="required rounded">必須</span>
+          <label for="text">商品説明</label>
           <input class="form-control" type="text" name="text" value="{{ old('text') }}" >
         </div>
         <div class="form-group">
-          <label for="hot">辛さ　　　</label>
+          <label for="hot">辛さ</label>
           <select class="form-control" id="hot" name="hot">
             @foreach(config('hot') as $key => $hot)
               <option value="{{ $key }}">{{ $hot['label'] }}</option>
