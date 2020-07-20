@@ -5,8 +5,9 @@
   <div class="row">
     <div class="col-md-6 mx-auto my-5">
       <h3 class="text-center mb-5">ご確認お願いいたします</h3>
-      <form method="post" action="/order">
+      <form method="post" action="{{ route('order.store') }}">
         @csrf
+        <input type="hidden" name="user_id" value="{{ $user_id }}">
       <p>受け取り者　：　{{ $name }}
         <input type="hidden" name="name" value="{{ $name }}">
       </p>
@@ -32,15 +33,9 @@
           </tr>
             @foreach($carts as $cart)
             <tr>
-              <td>{{ $cart->product->name }}
-                <input type="hidden" name="product_id" value="{{ $product_id }}">
-              </td>
-              <td>{{ $cart->quantity }}
-                <input type="hidden" name="quantity" value="{{ $quantity }}">
-              </td>
-              <td>￥{{ $cart->subtotal() }}（￥{{ $cart->tax() }}）
-                <input type="hidden" name="price" value="{{ $price }}">
-              </td>
+              <td>{{ $cart->product->name }}</td>
+              <td>{{ $cart->quantity }}</td>
+              <td>￥{{ $cart->subtotal() }}（￥{{ $cart->tax() }}）</td>
             </tr>
             @endforeach
           </table>
@@ -50,10 +45,10 @@
     </div>
   </div>
   <div class="text-center">
-    <input type="submit" value="注文を確定する" class="btn btn-add">
+    <button type="submit" name="action" value="post" class="btn btn-add">注文を確定する</button>
   </div>
   <div class="text-center">
-    <button name="back" type="submit" value="true" class="btn btn-add my-5 mr-3">情報入力に戻る</button>
+    <button type="submit" name="action" value="back" class="btn btn-add my-5">情報入力に戻る</button>
     <a class="btn btn-add my-5" href="/cart">注文リストに戻る</a>
   </div>
 </div>
