@@ -44,14 +44,15 @@ class OrderController extends Controller
             ->where('user_id', Auth::id())
             ->join('products', 'products.id','=','carts.product_id')
             ->get();
+        $user_id = Auth::id();
         $name = $request->name;
         $tel = $request->tel;
         $date = $request->date;
         $time = $request->time;
         $subtotals = $this->subtotals($carts);
         $total = $this->total($carts);
-        $price = $carts->tax();
         $input_data = [
+            'user_id' => $user_id,
             'name' => $name,
             'tel' => $tel,
             'date' => $date,
@@ -62,20 +63,39 @@ class OrderController extends Controller
     }
 
     // お客様情報送信
-    public function store(Request $request)
+    public function store(CreateOrder $request)
     {
         // 戻るボタンが押された場合
-        if ($request->post('back')) {
+        if ($request->get('action') === 'back') {
             return redirect('/order/create')->withInput();
         }
         // 注文確定ボタンが押された場合
-        if( $request->has('post') ){
-            $order = $request->post('name', 'tel', 'date', 'time', 'total');
-            $product = $request->post('product_id', 'quantity', 'price');
-            $order->products()->attach($product->id);
-            Cart::where('user_id', Auth::id())->delete();
+        // if( $request->has('post') ){
+            Order::create($request->all());
+            // $order = new Order();
+            // $order->create($request->all());
+            // $order->name = $request->name;
+            // $order->tel = $request->tel;
+            // $order->date = $request->date;
+            // $order->time = $request->time;
+            // $order->total = $request->total;
+            // $order = $request->post('name', 'tel', 'date', 'time', 'total');
+            // $order->save();
+            // $carts = Cart::select('carts.*', 'products.name', 'carts.quantity')
+            // ->where('user_id', Auth::id())
+            // ->join('products', 'products.id','=','carts.product_id')
+            // ->get();
+            // foreach ($carts as $cart)
+            // {
+            //     $order->OrderProducts()->attach($cart->product->id, [
+            //         'quantity' => $cart->quantity,
+            //         'price' => $cart->quantity*$cart->price
+            //     ]);
+            // }
+            
+            // Cart::where('user_id', Auth::id())->delete();
             return view('orders.thanks');
-        }
+        // }
     }
 
     // 注文完了画面
