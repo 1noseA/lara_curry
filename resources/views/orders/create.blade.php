@@ -18,22 +18,22 @@
         <div class="form-group">
           <span class="required rounded">必須</span>
           <label for="name">受け取り者の名前　　</label>
-          <input class="form-control" type="text" name="name" value="{{ old('name') }}" >
+          <input class="form-control" type="text" name="name" placeholder="フルネームでお願いいたします" value="{{ old('name') }}" >
         </div>
         <div class="form-group">
           <span class="required rounded">必須</span>
           <label for="tel">電話番号</label>
-          <input class="form-control" type="text" name="tel" value="{{ old('tel') }}" >
+          <input class="form-control" type="text" name="tel" placeholder="例：000-0000-0000" value="{{ old('tel') }}" >
         </div>
         <div class="form-group">
           <span class="required rounded">必須</span>
           <label for="date">受け取り日</label>
-            <input class="form-control" type="text" name="date" value="{{ old('date') }}" >
+            <input class="form-control" type="text" name="date" placeholder="例：◯/◯" value="{{ old('date') }}" >
         </div>
         <div class="form-group">
           <span class="required rounded">必須</span>
           <label for="time">受け取り時間</label>
-           <input class="form-control" type="text" name="time" value="{{ old('time') }}" >
+           <input class="form-control" type="text" name="time" placeholder="ご注文からご用意までに20分ほどかかります" value="{{ old('time') }}" >
         </div>
         <input type="hidden" name="total" value="{{ $total }}">
         <div class="text-center">

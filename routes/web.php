@@ -23,9 +23,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('product', 'ProductController');
 
-Route::resource('cart', 'CartController')->middleware('auth');
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('cart', 'CartController');
 
-Route::resource('order', 'OrderController')->middleware('auth');
+    Route::resource('order', 'OrderController');
 
-Route::post('/order/confirm', 'OrderController@confirm');
-Route::get('/order/thanks', 'OrderController@thanks');
+    Route::post('/order/confirm', 'OrderController@confirm');
+    Route::get('/order/thanks', 'OrderController@thanks');
+});
