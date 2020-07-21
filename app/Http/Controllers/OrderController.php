@@ -103,7 +103,12 @@ class OrderController extends Controller
     public function show($id)
     {
         $order = Order::find($id);
-        $order_products = OrderProduct::where('order_id', $id)->get();
-        return view('orders.show', compact('order', 'order_products'));
+        if ($order->user_id == Auth::id())
+        {
+            $order_products = OrderProduct::where('order_id', $id)->get();
+            return view('orders.show', compact('order', 'order_products'));
+        } else {
+            return redirect('/');
+        }
     }
 }
