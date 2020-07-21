@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\Order;
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreateOrder;
@@ -102,7 +103,7 @@ class OrderController extends Controller
     public function show($id)
     {
         $order = Order::find($id);
-        $order_products = OrderProduct::where('order_id', $order->id)->get();
+        $order_products = OrderProduct::where('order_id', $id)->get();
         return view('orders.show', compact('order', 'order_products'));
     }
 }
