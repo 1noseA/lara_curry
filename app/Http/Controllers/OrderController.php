@@ -70,18 +70,17 @@ class OrderController extends Controller
             return redirect('/order/create')->withInput();
         }
         // 注文確定ボタンが押された場合
+        // order保存→order_products保存→カート内削除
         $order = Order::create($request->all());
-
-            $order_products = Cart::where('user_id', Auth::id())->get();
-            foreach ($order_products as $order_product)
-            {
-                $order->OrderProducts()->attach($order_product->product->id, [
-                    'quantity' => $order_product->quantity,
-                    'price' => $order_product->quantity*$order_product->product->price
-                ]);
-            }
-            
-            // Cart::where('user_id', Auth::id())->delete();
+        $order_products = Cart::where('user_id', Auth::id())->get();
+        foreach ($order_products as $order_product)
+        {
+            $order->OrderProducts()->attach($order_product->product->id, [
+                'quantity' => $order_product->quantity,
+                'price' => $order_product->quantity*$order_product->product->price
+            ]);
+        }
+        Cart::where('user_id', Auth::id())->delete();
         return view('orders.thanks');
     }
 
