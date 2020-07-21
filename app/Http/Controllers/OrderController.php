@@ -7,6 +7,7 @@ use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreateOrder;
+use App\OrderProduct;
 
 class OrderController extends Controller
 {
@@ -93,12 +94,15 @@ class OrderController extends Controller
     // 注文情報一覧
     public function index()
     {
-
+        $orders = Order::where('user_id', Auth::id())->get();
+        return view('orders.index', compact('orders'));
     }
 
     // 注文商品の表示
-    public function show()
+    public function show($id)
     {
-
+        $order = Order::find($id);
+        $order_products = OrderProduct::all();
+        return view('orders.show', compact('order', 'order_products'));
     }
 }

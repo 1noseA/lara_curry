@@ -26,14 +26,14 @@
           <input type="hidden" name="_method" value="delete">
           <input type="submit" value="全削除" class="btn btn-add">
         </form> --}}
-        <table class="table">
-          <tr>
-            <th class="w-25">商品名</th>
-            <th>個数</th>
-            <th>小計</th>
-            <th></th>
-          </tr>
-          
+          <table class="table">
+            <tr>
+              <th class="w-25">商品名</th>
+              <th>個数</th>
+              <th>小計</th>
+              <th></th>
+            </tr>
+            
             @foreach($carts as $cart)
             <tr>
               <td>{{ $cart->product->name }}</td>
