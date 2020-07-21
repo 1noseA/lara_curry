@@ -102,7 +102,7 @@ class OrderController extends Controller
     public function show($id)
     {
         $order = Order::find($id);
-        $order_products = OrderProduct::all();
+        $order_products = OrderProduct::where('order_id', $order->id)->get();
         return view('orders.show', compact('order', 'order_products'));
     }
 }
