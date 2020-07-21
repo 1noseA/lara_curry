@@ -70,32 +70,19 @@ class OrderController extends Controller
             return redirect('/order/create')->withInput();
         }
         // 注文確定ボタンが押された場合
-        // if( $request->has('post') ){
-            Order::create($request->all());
-            // $order = new Order();
-            // $order->create($request->all());
-            // $order->name = $request->name;
-            // $order->tel = $request->tel;
-            // $order->date = $request->date;
-            // $order->time = $request->time;
-            // $order->total = $request->total;
-            // $order = $request->post('name', 'tel', 'date', 'time', 'total');
-            // $order->save();
-            // $carts = Cart::select('carts.*', 'products.name', 'carts.quantity')
-            // ->where('user_id', Auth::id())
-            // ->join('products', 'products.id','=','carts.product_id')
-            // ->get();
-            // foreach ($carts as $cart)
-            // {
-            //     $order->OrderProducts()->attach($cart->product->id, [
-            //         'quantity' => $cart->quantity,
-            //         'price' => $cart->quantity*$cart->price
-            //     ]);
-            // }
+        $order = Order::create($request->all());
+
+            $order_products = Cart::where('user_id', Auth::id())->get();
+            foreach ($order_products as $order_product)
+            {
+                $order->OrderProducts()->attach($order_product->product->id, [
+                    'quantity' => $order_product->quantity,
+                    'price' => $order_product->quantity*$order_product->product->price
+                ]);
+            }
             
             // Cart::where('user_id', Auth::id())->delete();
-            return view('orders.thanks');
-        // }
+        return view('orders.thanks');
     }
 
     // 注文完了画面
