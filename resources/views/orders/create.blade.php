@@ -5,6 +5,14 @@
   <div class="row">
     <div class="col-md-6 mx-auto my-5">
       <h3 class="text-center mb-3">受け取り情報入力</h3>
+      {{-- エラーメッセージ --}}
+      @if($errors->any())
+        <div class="alert alert-danger">
+          @foreach($errors->all() as $message)
+            <p>{{ $message }}</p>
+          @endforeach
+        </div>
+      @endif
       <form method="post" action="/order/confirm">
         @csrf
         <div class="form-group">

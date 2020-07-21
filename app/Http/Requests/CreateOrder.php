@@ -25,8 +25,8 @@ class CreateOrder extends FormRequest
     {
         return [
             'tel' => 'required',
-            'date' => 'required',
-            'time' => 'required',
+            'date' => 'required|after:"now"',
+            'time' => 'required|after:"now"',
             'name' => 'required',
             'total' => 'required|integer',
         ];
