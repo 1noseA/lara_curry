@@ -57,6 +57,7 @@
             </tr>
             @endforeach
           </table>
+          {{ $carts->links('pagination::default') }}
           <p class="text-center">合計金額　：　￥{{ $subtotals }}（￥{{ $total }}）</p>
           <div class="text-center">
             <a class="btn btn-add mt-3" href="/order/create">注文する</a>

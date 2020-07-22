@@ -95,7 +95,7 @@ class OrderController extends Controller
     // 注文情報一覧
     public function index()
     {
-        $orders = Order::where('user_id', Auth::id())->get();
+        $orders = Order::where('user_id', Auth::id())->paginate(5);
         return view('orders.index', compact('orders'));
     }
 

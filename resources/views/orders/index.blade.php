@@ -25,6 +25,7 @@
           </tr>
           @endforeach
         </table>
+        {{ $orders->links('pagination::default') }}
         @else
           <p>注文履歴はありません</p>
         @endif
