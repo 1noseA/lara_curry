@@ -5,9 +5,11 @@
     <div class="row">
       <div class="col-md-6 my-5">
         @if ($product->image == null)
-          <img class="card-img" src="/img/curry_pot.png">
+          <img class="show-img" src="/img/curry_pot.png">
         @else
-          <img class="card-img" src="../../uploads/{{ $product->image }}">
+          {{-- ファイルアップロードの場合
+          <img class="show-img" src="../../uploads/{{ $product->image }}"> --}}
+          <img class="show-img" src="/img/{{ $product->image }}">
         @endif
       </div>
       <div class="col-md-6 mt-5 p-5">

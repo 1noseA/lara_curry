@@ -13,7 +13,7 @@
     <div class="row">
       <div class="col-md-10 mx-auto my-5">
         <div class="menu">
-          <h3>メニュー</h3>
+          <h3 class="text-center">〜メニュー〜</h3>
           <h4 class="my-3">カレー</h4>
           <div class="product-wrapper">
             @foreach ($products as $product)

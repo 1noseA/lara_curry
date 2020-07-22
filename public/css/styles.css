@@ -109,14 +109,19 @@ body {
 }
 
 .card-img {
-  width: 100%;
-  height: 100%;
+  height:240px;
 }
 
 /* 店舗情報 */
 .shop-map img {
   width: 540px;
   height: 300px;
+}
+
+/* Product */
+.show-img {
+  width: 500px;
+  height: 400px;
 }
 
 /* Cart */

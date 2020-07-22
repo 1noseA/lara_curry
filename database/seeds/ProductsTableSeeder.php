@@ -71,7 +71,7 @@ class ProductsTableSeeder extends Seeder
                 'text' => 'でかさは負けない',
                 'category' => 2,
                 'hot' => 1,
-                'image' => 'nan.png',
+                'image' => 'pan.png',
             ],
             [
                 'name' => 'チーズナン',
@@ -79,7 +79,7 @@ class ProductsTableSeeder extends Seeder
                 'text' => 'チーズのびのび',
                 'category' => 2,
                 'hot' => 1,
-                'image' => 'pan.png',
+                'image' => 'nan.png',
             ],
             [
                 'name' => 'ライス',
