@@ -16,7 +16,7 @@ class CartController extends Controller
         $carts = Cart::select('carts.*', 'products.name', 'carts.quantity')
             ->where('user_id', Auth::id())
             ->join('products', 'products.id','=','carts.product_id')
-            ->get();
+            ->paginate(10);
         $subtotals = $this->subtotals($carts);
         $total = $this->total($carts);
         return view('carts.index', compact('carts', 'subtotals', 'total'));

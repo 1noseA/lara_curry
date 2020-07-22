@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\Order;
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreateOrder;
+use App\OrderProduct;
 
 class OrderController extends Controller
 {
@@ -70,32 +72,18 @@ class OrderController extends Controller
             return redirect('/order/create')->withInput();
         }
         // 注文確定ボタンが押された場合
-        // if( $request->has('post') ){
-            Order::create($request->all());
-            // $order = new Order();
-            // $order->create($request->all());
-            // $order->name = $request->name;
-            // $order->tel = $request->tel;
-            // $order->date = $request->date;
-            // $order->time = $request->time;
-            // $order->total = $request->total;
-            // $order = $request->post('name', 'tel', 'date', 'time', 'total');
-            // $order->save();
-            // $carts = Cart::select('carts.*', 'products.name', 'carts.quantity')
-            // ->where('user_id', Auth::id())
-            // ->join('products', 'products.id','=','carts.product_id')
-            // ->get();
-            // foreach ($carts as $cart)
-            // {
-            //     $order->OrderProducts()->attach($cart->product->id, [
-            //         'quantity' => $cart->quantity,
-            //         'price' => $cart->quantity*$cart->price
-            //     ]);
-            // }
-            
-            // Cart::where('user_id', Auth::id())->delete();
-            return view('orders.thanks');
-        // }
+        // order保存→order_products保存→カート内削除
+        $order = Order::create($request->all());
+        $order_products = Cart::where('user_id', Auth::id())->get();
+        foreach ($order_products as $order_product)
+        {
+            $order->OrderProducts()->attach($order_product->product->id, [
+                'quantity' => $order_product->quantity,
+                'price' => $order_product->quantity*$order_product->product->price
+            ]);
+        }
+        Cart::where('user_id', Auth::id())->delete();
+        return view('orders.thanks');
     }
 
     // 注文完了画面
@@ -107,12 +95,20 @@ class OrderController extends Controller
     // 注文情報一覧
     public function index()
     {
-
+        $orders = Order::where('user_id', Auth::id())->paginate(5);
+        return view('orders.index', compact('orders'));
     }
 
     // 注文商品の表示
-    public function show()
+    public function show($id)
     {
-
+        $order = Order::find($id);
+        if ($order->user_id == Auth::id())
+        {
+            $order_products = OrderProduct::where('order_id', $id)->get();
+            return view('orders.show', compact('order', 'order_products'));
+        } else {
+            return redirect('/');
+        }
     }
 }

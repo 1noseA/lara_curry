@@ -26,14 +26,14 @@
           <input type="hidden" name="_method" value="delete">
           <input type="submit" value="全削除" class="btn btn-add">
         </form> --}}
-        <table class="table">
-          <tr>
-            <th class="w-25">商品名</th>
-            <th>個数</th>
-            <th>小計</th>
-            <th></th>
-          </tr>
-          
+          <table class="table">
+            <tr>
+              <th class="w-25">商品名</th>
+              <th>個数</th>
+              <th>小計</th>
+              <th></th>
+            </tr>
+            
             @foreach($carts as $cart)
             <tr>
               <td>{{ $cart->product->name }}</td>
@@ -43,7 +43,7 @@
                   @csrf
                   <input type="text" name="quantity" value="{{ $cart->quantity }}" class="qty-form">
                   個
-                  <button type="submit" class="btn btn-add">更新</button>
+                  <button type="submit" class="btn btn-change ml-3">更新</button>
                 </form>
               </td>
               <td>￥{{ $cart->subtotal() }}（￥{{ $cart->tax() }}）</td>
@@ -51,12 +51,13 @@
                 <form method="post" action="/cart/{{ $cart->id }}">
                   @csrf
                   <input type="hidden" name="_method" value="delete">
-                  <input type="submit" value="削除" class="btn btn-add">
+                  <input type="submit" value="削除" class="btn btn-change">
                 </form>
               </td>
             </tr>
             @endforeach
           </table>
+          {{ $carts->links('pagination::default') }}
           <p class="text-center">合計金額　：　￥{{ $subtotals }}（￥{{ $total }}）</p>
           <div class="text-center">
             <a class="btn btn-add mt-3" href="/order/create">注文する</a>
@@ -66,7 +67,7 @@
         @endif
           
         <div class="text-center">
-          <a class="btn btn-add my-5" href="/">戻る</a>
+          <a class="btn btn-move my-5" href="/">戻る</a>
         </div>
     </div>
   </div>

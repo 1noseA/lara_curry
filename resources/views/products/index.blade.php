@@ -13,7 +13,7 @@
     <div class="row">
       <div class="col-md-10 mx-auto my-5">
         <div class="menu">
-          <h3>メニュー</h3>
+          <h3 class="text-center">〜メニュー〜</h3>
           <h4 class="my-3">カレー</h4>
           <div class="product-wrapper">
             @foreach ($products as $product)
@@ -23,7 +23,9 @@
                     @if ($product->image == null)
                       <img class="card-img" src="/img/curry_pot.png">
                     @else
-                      <img class="card-img" src="../../uploads/{{ $product->image }}">
+                      {{-- ファイルアップロードの場合
+                      <img class="card-img" src="../../uploads/{{ $product->image }}"> --}}
+                      <img class="card-img" src="/img/{{ $product->image }}">
                     @endif
                   </a>
                   <div class="card-body">
@@ -44,7 +46,9 @@
                     @if ($product->image == null)
                       <img class="card-img" src="/img/curry_pot.png">
                     @else
-                      <img class="card-img" src="../../uploads/{{ $product->image }}">
+                      {{-- ファイルアップロードの場合
+                      <img class="card-img" src="../../uploads/{{ $product->image }}"> --}}
+                      <img class="card-img" src="/img/{{ $product->image }}">
                     @endif
                   </a>
                   <div class="card-body">
@@ -65,7 +69,9 @@
                     @if ($product->image == null)
                       <img class="card-img" src="/img/curry_pot.png">
                     @else
-                      <img class="card-img" src="../../uploads/{{ $product->image }}">
+                      {{-- ファイルアップロードの場合
+                      <img class="card-img" src="../../uploads/{{ $product->image }}"> --}}
+                      <img class="card-img" src="/img/{{ $product->image }}">
                     @endif
                   </a>
                   <div class="card-body">
@@ -86,7 +92,9 @@
                     @if ($product->image == null)
                       <img class="card-img" src="/img/curry_pot.png">
                     @else
-                      <img class="card-img" src="../../uploads/{{ $product->image }}">
+                      {{-- ファイルアップロードの場合
+                      <img class="card-img" src="../../uploads/{{ $product->image }}"> --}}
+                      <img class="card-img" src="/img/{{ $product->image }}">
                     @endif
                   </a>
                   <div class="card-body">

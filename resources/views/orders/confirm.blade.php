@@ -48,8 +48,8 @@
     <button type="submit" name="action" value="post" class="btn btn-add">注文を確定する</button>
   </div>
   <div class="text-center">
-    <button type="submit" name="action" value="back" class="btn btn-add my-5">情報入力に戻る</button>
-    <a class="btn btn-add my-5" href="/cart">注文リストに戻る</a>
+    <button type="submit" name="action" value="back" class="btn btn-move my-5">情報入力に戻る</button>
+    <a class="btn btn-move my-5" href="/cart">注文リストに戻る</a>
   </div>
 </div>
 @endsection

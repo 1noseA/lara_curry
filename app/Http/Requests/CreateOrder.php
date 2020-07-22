@@ -25,7 +25,7 @@ class CreateOrder extends FormRequest
     {
         return [
             'tel' => 'required',
-            'date' => 'required',
+            'date' => 'required|after_or_equal:today',
             'time' => 'required',
             'name' => 'required',
             'total' => 'required|integer',
@@ -40,6 +40,13 @@ class CreateOrder extends FormRequest
             'time' => '受け取り時間',
             'name' => '受け取り者',
             'total' => '合計金額',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'date.after_or_equal' => ':attribute には今日以降の日付を入力してください。',
         ];
     }
 }
