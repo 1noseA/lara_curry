@@ -11,7 +11,11 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('products')->insert([
+        # 初期化
+        DB::table('users')->delete();
+        
+        # テストデータ挿入
+        DB::table('users')->insert([
             [
                 'name' => '佐藤',
                 'email' => 'test1@example.com',

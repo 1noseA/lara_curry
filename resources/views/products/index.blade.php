@@ -23,7 +23,9 @@
                     @if ($product->image == null)
                       <img class="card-img" src="/img/curry_pot.png">
                     @else
-                      <img class="card-img" src="../../uploads/{{ $product->image }}">
+                      {{-- ファイルアップロードの場合
+                      <img class="card-img" src="../../uploads/{{ $product->image }}"> --}}
+                      <img class="card-img" src="/img/{{ $product->image }}">
                     @endif
                   </a>
                   <div class="card-body">
@@ -44,7 +46,9 @@
                     @if ($product->image == null)
                       <img class="card-img" src="/img/curry_pot.png">
                     @else
-                      <img class="card-img" src="../../uploads/{{ $product->image }}">
+                      {{-- ファイルアップロードの場合
+                      <img class="card-img" src="../../uploads/{{ $product->image }}"> --}}
+                      <img class="card-img" src="/img/{{ $product->image }}">
                     @endif
                   </a>
                   <div class="card-body">
@@ -65,7 +69,9 @@
                     @if ($product->image == null)
                       <img class="card-img" src="/img/curry_pot.png">
                     @else
-                      <img class="card-img" src="../../uploads/{{ $product->image }}">
+                      {{-- ファイルアップロードの場合
+                      <img class="card-img" src="../../uploads/{{ $product->image }}"> --}}
+                      <img class="card-img" src="/img/{{ $product->image }}">
                     @endif
                   </a>
                   <div class="card-body">
@@ -86,7 +92,9 @@
                     @if ($product->image == null)
                       <img class="card-img" src="/img/curry_pot.png">
                     @else
-                      <img class="card-img" src="../../uploads/{{ $product->image }}">
+                      {{-- ファイルアップロードの場合
+                      <img class="card-img" src="../../uploads/{{ $product->image }}"> --}}
+                      <img class="card-img" src="/img/{{ $product->image }}">
                     @endif
                   </a>
                   <div class="card-body">

@@ -11,6 +11,10 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
+        # 初期化
+        DB::table('products')->delete();
+        
+        # テストデータ挿入
         DB::table('products')->insert([
             [
                 'name' => 'ララカレー',
@@ -50,7 +54,7 @@ class ProductsTableSeeder extends Seeder
                 'text' => 'エビがぷりぷり',
                 'category' => 1,
                 'hot' => 3,
-                'image' => 'yello_curry.png',
+                'image' => 'yellow_curry.png',
             ],
             [
                 'name' => 'ほうれん草',
@@ -66,6 +70,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => 200,
                 'text' => 'でかさは負けない',
                 'category' => 2,
+                'hot' => 1,
                 'image' => 'nan.png',
             ],
             [
@@ -73,6 +78,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => 300,
                 'text' => 'チーズのびのび',
                 'category' => 2,
+                'hot' => 1,
                 'image' => 'pan.png',
             ],
             [
@@ -80,6 +86,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => 200,
                 'text' => '200g',
                 'category' => 2,
+                'hot' => 1,
                 'image' => 'rice.png',
             ],
 
@@ -88,6 +95,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => 200,
                 'text' => 'コールスロー',
                 'category' => 3,
+                'hot' => 1,
                 'image' => 'salad.png',
             ],
             [
@@ -95,6 +103,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => 300,
                 'text' => 'ジュージー',
                 'category' => 3,
+                'hot' => 1,
                 'image' => 'chicken.png',
             ],
             [
@@ -102,6 +111,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => 300,
                 'text' => '揚げ餃子みたいな。じゃがいも＋ひき肉＋豆',
                 'category' => 3,
+                'hot' => 1,
                 'image' => 'samosa.png',
             ],
 
@@ -110,6 +120,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => 200,
                 'text' => 'ヨーグルトドリンク',
                 'category' => 4,
+                'hot' => 1,
                 'image' => 'drink_lassi.png',
             ],
             [
@@ -117,6 +128,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => 300,
                 'text' => 'とろーり濃厚',
                 'category' => 4,
+                'hot' => 1,
                 'image' => 'lassi_mango.png',
             ],
             [
@@ -124,6 +136,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => 300,
                 'text' => 'スパイシーなミルクティー',
                 'category' => 4,
+                'hot' => 1,
                 'image' => 'chai.png',
             ],
         ]);
