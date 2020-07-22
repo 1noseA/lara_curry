@@ -43,7 +43,7 @@
                   @csrf
                   <input type="text" name="quantity" value="{{ $cart->quantity }}" class="qty-form">
                   個
-                  <button type="submit" class="btn btn-add">更新</button>
+                  <button type="submit" class="btn btn-change ml-3">更新</button>
                 </form>
               </td>
               <td>￥{{ $cart->subtotal() }}（￥{{ $cart->tax() }}）</td>
@@ -51,7 +51,7 @@
                 <form method="post" action="/cart/{{ $cart->id }}">
                   @csrf
                   <input type="hidden" name="_method" value="delete">
-                  <input type="submit" value="削除" class="btn btn-add">
+                  <input type="submit" value="削除" class="btn btn-change">
                 </form>
               </td>
             </tr>
@@ -67,7 +67,7 @@
         @endif
           
         <div class="text-center">
-          <a class="btn btn-add my-5" href="/">戻る</a>
+          <a class="btn btn-move my-5" href="/">戻る</a>
         </div>
     </div>
   </div>

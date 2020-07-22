@@ -63,6 +63,24 @@ body {
   color: #fff;
 }
 
+.btn-change {
+  color: #bb5520;
+  border-color: #bb5520;
+}
+.btn-change:hover {
+  background-color: #bb5520;;
+  color: #fff;
+}
+
+.btn-move {
+  background: #777;
+  color: #fff;
+}
+.btn-move:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
+
 /* トップページ（商品一覧） */
 .top-image {
   width: 100%;
@@ -139,7 +157,7 @@ margin-right: 4px;
 }
 
 .paginationWrap ul.pagination li a {
-  color: #2f3859;
+  color: #333;
   padding: 8px 14px;
   text-decoration: none;
 }

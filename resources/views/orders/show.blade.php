@@ -26,7 +26,7 @@
           @endforeach
         </table>
         <div class="text-right">
-          <a class="btn btn-add" href="/order">戻る</a>
+          <a class="btn btn-move" href="/order">戻る</a>
         </div>
       </div>
     </div>

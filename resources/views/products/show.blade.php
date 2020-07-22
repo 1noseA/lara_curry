@@ -36,7 +36,7 @@
           <input type="hidden" name="product_id" value="{{ $product->id }}">
           <input type="submit" value="これに決めた！" class="btn btn-add my-5 mr-3">
         </form>
-        <a class="btn btn-add mb-5" href="/">戻る</a>
+        <a class="btn btn-move mb-5" href="/">戻る</a>
         {{-- 削除確認
         <form action="/product/{{ $product->id }}" method="post">
           @csrf
