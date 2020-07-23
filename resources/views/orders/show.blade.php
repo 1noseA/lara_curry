@@ -13,14 +13,14 @@
             <th class="w-25">個数</th>
             <th class="w-25">小計</th>
           </tr>      
-          @foreach($order_products as $order_product)
+          @foreach($order->products as $product)
             <tr>
-              <td>{{ $order_product->product_id }}</td>
+              <td>{{ $product->name }}</td>
               <td>
-                {{ $order_product->quantity }}個
+                {{ $product->pivot->quantity }}個
               </td>
               <td>
-                ￥{{ $order_product->price }}（￥{{ round($order_product->price*1.08) }}）
+                ￥{{ $product->pivot->price }}（￥{{ round($product->pivot->price*1.08) }}）
               </td>
             </tr>
           @endforeach
