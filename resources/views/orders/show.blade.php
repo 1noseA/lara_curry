@@ -17,7 +17,7 @@
             <tr>
               <td>{{ $product->name }}</td>
               <td>
-                {{ $product->pivot->quantity }}個
+                {{ $product->pivot->quantity }}
               </td>
               <td>
                 ￥{{ $product->pivot->price }}（￥{{ round($product->pivot->price*1.08) }}）

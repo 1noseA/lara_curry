@@ -77,7 +77,7 @@ class OrderController extends Controller
         $order_products = Cart::where('user_id', Auth::id())->get();
         foreach ($order_products as $order_product)
         {
-            $order->OrderProducts()->attach($order_product->product->id, [
+            $order->products()->attach($order_product->product->id, [
                 'quantity' => $order_product->quantity,
                 'price' => $order_product->quantity*$order_product->product->price
             ]);
@@ -105,8 +105,7 @@ class OrderController extends Controller
         $order = Order::find($id);
         if ($order->user_id == Auth::id())
         {
-            $order_products = OrderProduct::where('order_id', $id)->get();
-            return view('orders.show', compact('order', 'order_products'));
+            return view('orders.show', compact('order'));
         } else {
             return redirect('/');
         }
