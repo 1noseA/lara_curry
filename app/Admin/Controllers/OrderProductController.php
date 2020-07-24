@@ -26,13 +26,13 @@ class OrderProductController extends AdminController
     {
         $grid = new Grid(new OrderProduct());
 
-        $grid->column('id', __('Id'));
-        $grid->column('order_id', __('Order id'));
-        $grid->column('product_id', __('Product id'));
-        $grid->column('quantity', __('Quantity'));
-        $grid->column('price', __('Price'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('id', 'ID');
+        $grid->column('order_id', '注文id');
+        $grid->column('product_id', '商品id');
+        $grid->column('quantity', '数量');
+        $grid->column('price', '小計');
+        // $grid->column('created_at', __('Created at'));
+        // $grid->column('updated_at', __('Updated at'));
 
         return $grid;
     }
@@ -47,13 +47,13 @@ class OrderProductController extends AdminController
     {
         $show = new Show(OrderProduct::findOrFail($id));
 
-        $show->field('id', __('Id'));
-        $show->field('order_id', __('Order id'));
-        $show->field('product_id', __('Product id'));
-        $show->field('quantity', __('Quantity'));
-        $show->field('price', __('Price'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
+        $show->field('id', 'ID');
+        $show->field('order_id', '注文id');
+        $show->field('product_id', '商品id');
+        $show->field('quantity', '数量');
+        $show->field('price', '小計');
+        // $show->field('created_at', __('Created at'));
+        // $show->field('updated_at', __('Updated at'));
 
         return $show;
     }
@@ -67,10 +67,10 @@ class OrderProductController extends AdminController
     {
         $form = new Form(new OrderProduct());
 
-        $form->number('order_id', __('Order id'));
-        $form->number('product_id', __('Product id'));
-        $form->number('quantity', __('Quantity'));
-        $form->number('price', __('Price'));
+        $form->number('order_id', '注文id');
+        $form->number('product_id', '商品id');
+        $form->number('quantity', '数量');
+        $form->number('price', '小計');
 
         return $form;
     }

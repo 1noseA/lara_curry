@@ -8,7 +8,7 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class orderController extends AdminController
+class OrderController extends AdminController
 {
     /**
      * Title for current resource.
@@ -26,15 +26,15 @@ class orderController extends AdminController
     {
         $grid = new Grid(new Order());
 
-        $grid->column('id', __('Id'));
-        $grid->column('user_id', __('User id'));
-        $grid->column('tel', __('Tel'));
-        $grid->column('date', __('Date'));
-        $grid->column('time', __('Time'));
-        $grid->column('name', __('Name'));
-        $grid->column('total', __('Total'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('id', 'ID');
+        $grid->column('user_id', 'ユーザーid');
+        $grid->column('tel', '電話番号');
+        $grid->column('date', '受け取り日');
+        $grid->column('time', '受け取り時間');
+        $grid->column('name', '受け取り者');
+        $grid->column('total', '合計金額');
+        $grid->column('created_at', '注文日時');
+        $grid->column('updated_at', '更新日時');
 
         return $grid;
     }
@@ -49,15 +49,15 @@ class orderController extends AdminController
     {
         $show = new Show(Order::findOrFail($id));
 
-        $show->field('id', __('Id'));
-        $show->field('user_id', __('User id'));
-        $show->field('tel', __('Tel'));
-        $show->field('date', __('Date'));
-        $show->field('time', __('Time'));
-        $show->field('name', __('Name'));
-        $show->field('total', __('Total'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
+        $show->field('id', 'ID');
+        $show->field('user_id', 'ユーザーid');
+        $show->field('tel', '電話番号');
+        $show->field('date', '受け取り日');
+        $show->field('time', '受け取り時間');
+        $show->field('name', '受け取り者');
+        $show->field('total', '合計金額');
+        $show->field('created_at', '注文日時');
+        $show->field('updated_at', '更新日時');
 
         return $show;
     }
@@ -71,12 +71,12 @@ class orderController extends AdminController
     {
         $form = new Form(new Order());
 
-        $form->number('user_id', __('User id'));
-        $form->text('tel', __('Tel'));
-        $form->text('date', __('Date'));
-        $form->text('time', __('Time'));
-        $form->text('name', __('Name'));
-        $form->number('total', __('Total'));
+        $form->number('user_id', 'ユーザーid');
+        $form->text('tel', '電話番号');
+        $form->text('date', '受け取り日');
+        $form->text('time', '受け取り時間');
+        $form->text('name', '受け取り者');
+        $form->number('total', '合計金額');
 
         return $form;
     }

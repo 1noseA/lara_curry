@@ -26,15 +26,15 @@ class ProductController extends AdminController
     {
         $grid = new Grid(new Product());
 
-        $grid->column('id', __('Id'));
-        $grid->column('name', __('Name'));
-        $grid->column('price', __('Price'));
-        $grid->column('text', __('Text'));
-        $grid->column('hot', __('Hot'));
-        $grid->column('category', __('Category'));
-        $grid->column('image', __('Image'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('id', 'ID');
+        $grid->column('name', '商品名');
+        $grid->column('price', '値段');
+        $grid->column('text', '商品説明');
+        $grid->column('hot', '辛さ');
+        $grid->column('category', 'カテゴリー');
+        $grid->column('image', '画像');
+        $grid->column('created_at', '登録日時');
+        $grid->column('updated_at', '更新日時');
 
         return $grid;
     }
@@ -49,15 +49,15 @@ class ProductController extends AdminController
     {
         $show = new Show(Product::findOrFail($id));
 
-        $show->field('id', __('Id'));
-        $show->field('name', __('Name'));
-        $show->field('price', __('Price'));
-        $show->field('text', __('Text'));
-        $show->field('hot', __('Hot'));
-        $show->field('category', __('Category'));
-        $show->field('image', __('Image'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
+        $show->field('id', 'ID');
+        $show->field('name', '商品名');
+        $show->field('price', '値段');
+        $show->field('text', '商品説明');
+        $show->field('hot', '辛さ');
+        $show->field('category', 'カテゴリー');
+        $show->field('image', '画像');
+        $show->field('created_at', '登録日時');
+        $show->field('updated_at', '更新日時');
 
         return $show;
     }
@@ -71,12 +71,12 @@ class ProductController extends AdminController
     {
         $form = new Form(new Product());
 
-        $form->text('name', __('Name'));
-        $form->number('price', __('Price'));
-        $form->text('text', __('Text'));
-        $form->number('hot', __('Hot'))->default(1);
-        $form->number('category', __('Category'));
-        $form->image('image', __('Image'));
+        $form->text('name', '商品名');
+        $form->number('price', '値段');
+        $form->text('text', '商品名');
+        $form->number('hot', '辛さ')->default(1);
+        $form->number('category', 'カテゴリー');
+        $form->image('image', '画像');
 
         return $form;
     }
