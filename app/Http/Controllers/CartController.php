@@ -75,4 +75,10 @@ class CartController extends Controller
         $cart->delete();
         return redirect('/cart')->with('flash_message', '商品を削除しました');
     }
+
+    public function reset()
+    {
+        Cart::where('user_id', Auth::id())->delete();
+        return redirect('/cart')->with('flash_message', '注文リストをリセットしました');
+    }
 }

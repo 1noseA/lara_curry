@@ -25,6 +25,7 @@ Route::resource('product', 'ProductController');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('cart', 'CartController');
+    Route::post('/cart/reset', 'CartController@reset');
 
     Route::resource('order', 'OrderController');
 
