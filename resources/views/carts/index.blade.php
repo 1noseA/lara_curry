@@ -23,9 +23,30 @@
         @if ($carts->isNotEmpty())
         <form method="post" action="/cart/reset">
           @csrf
-          {{-- <input type="hidden" name="_method" value="delete"> --}}
-          <input type="submit" value="リセット" class="btn btn-add">
+          <input type="button" value="リセット" class="reset-confirm btn btn-danger" data-toggle="modal" data-target="#confirm-reset">
+        
+          {{-- モーダル --}}
+          <div class="modal fade" id="confirm-reset" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">確認</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  注文リストをリセットしてよろしいですか？
+                </div>
+                <div class="modal-footer">
+                  <input type="submit" class="btn btn-danger" id="resetbtn" name="resetbtn" value="はい">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">いいえ</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </form>
+      
           <table class="table">
             <tr>
               <th class="w-25">商品名</th>
@@ -33,7 +54,6 @@
               <th>小計</th>
               <th></th>
             </tr>
-            
             @foreach($carts as $cart)
             <tr>
               <td>{{ $cart->product->name }}</td>
@@ -50,7 +70,7 @@
                 <form method="post" action="/cart/{{ $cart->id }}">
                   @csrf
                   <input type="hidden" name="_method" value="delete">
-                  <input type="submit" value="削除" class="btn btn-change">
+                  <input type="submit" value="削除" class="btn btn-danger">
                 </form>
               </td>
             </tr>
@@ -72,3 +92,9 @@
   </div>
 </div>
 @endsection
+
+<script>
+  $('.reset-confirm').click(function(){
+      $('#resetbtn').val( $(this).val() );
+  });
+</script>
