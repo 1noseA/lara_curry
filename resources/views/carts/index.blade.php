@@ -21,11 +21,11 @@
         @endif
         {{-- 商品があるときとないときで条件分岐 --}}
         @if ($carts->isNotEmpty())
-        {{-- <form method="post" action="/cart/delete">
+        <form method="post" action="/cart/reset">
           @csrf
-          <input type="hidden" name="_method" value="delete">
-          <input type="submit" value="全削除" class="btn btn-add">
-        </form> --}}
+          {{-- <input type="hidden" name="_method" value="delete"> --}}
+          <input type="submit" value="リセット" class="btn btn-add">
+        </form>
           <table class="table">
             <tr>
               <th class="w-25">商品名</th>
@@ -42,7 +42,6 @@
                   @method('PATCH')
                   @csrf
                   <input type="text" name="quantity" value="{{ $cart->quantity }}" class="qty-form">
-                  個
                   <button type="submit" class="btn btn-change ml-3">更新</button>
                 </form>
               </td>
