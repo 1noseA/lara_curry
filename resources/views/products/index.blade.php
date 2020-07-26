@@ -18,7 +18,7 @@
           <div class="product-wrapper">
             @foreach ($products as $product)
               @if ($product->category === 1)
-                <div class="card col-md-4">
+                <div class="card card-product col-md-4">
                   <a href="/product/{{$product->id}}">
                     @if ($product->image == null)
                       <img class="card-img" src="/img/curry_pot.png">
@@ -41,7 +41,7 @@
           <div class="product-wrapper">
             @foreach ($products as $product)
               @if ($product->category === 2)
-                <div class="card col-md-4">
+                <div class="card card-product col-md-4">
                   <a href="/product/{{$product->id}}">
                     @if ($product->image == null)
                       <img class="card-img" src="/img/curry_pot.png">
@@ -64,7 +64,7 @@
           <div class="product-wrapper">
             @foreach ($products as $product)
               @if ($product->category === 3)
-                <div class="card col-md-4">
+                <div class="card card-product col-md-4">
                   <a href="/product/{{$product->id}}">
                     @if ($product->image == null)
                       <img class="card-img" src="/img/curry_pot.png">
@@ -87,7 +87,7 @@
           <div class="product-wrapper">
             @foreach ($products as $product)
               @if ($product->category === 4)
-                <div class="card col-md-4">
+                <div class="card card-product col-md-4">
                   <a href="/product/{{$product->id}}">
                     @if ($product->image == null)
                       <img class="card-img" src="/img/curry_pot.png">
