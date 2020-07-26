@@ -33,9 +33,12 @@
                 <input type="password" class="form-control" id="password-confirm" name="password_confirmation">
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-add mt-3">登録</button>
+                <button type="submit" class="btn btn-add my-3">登録</button>
               </div>
             </form>
+            <div class="text-center">
+              <a href="/login">ログインはこちらから</a>
+            </div>
           </div>
         </div>
       </div>

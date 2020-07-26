@@ -36,9 +36,10 @@
                 <button type="submit" class="btn btn-move">テストユーザーでログイン</button>
               </div>
             </form>
-          </div>
-          <div class="text-center">
-            <a href="{{ route('password.request') }}">パスワードの変更はこちらから</a>
+            <div class="text-center mt-3">
+              <a href="/register">会員登録はこちらから</a><br>
+              <a href="{{ route('password.request') }}">パスワードの変更はこちらから</a>
+            </div>
           </div>
         </div>
       </div>
