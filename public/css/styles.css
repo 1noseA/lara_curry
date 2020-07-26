@@ -27,7 +27,7 @@ a.nav-item:hover {
 /* フッター */
 footer {
   background: #bb5520;
-  height: 4rem;
+  height: 6rem;
 }
 
 footer a {
@@ -178,4 +178,14 @@ margin-right: 4px;
 .paginationWrap ul.pagination li a:hover:not(.active) {
   background-color: #f4f7f8;
   border-radius: 40px;
+}
+
+/* footerを下部に固定 */
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
 }
