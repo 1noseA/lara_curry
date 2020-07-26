@@ -1,85 +1,46 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# 【Laravel】ララカレー
+<img width="1440" alt="01" src="https://user-images.githubusercontent.com/59720615/88476906-ec8d5f80-cf76-11ea-8d0e-6c220214d8d1.png">
+<img width="1440" alt="02" src="https://user-images.githubusercontent.com/59720615/88476907-eeefb980-cf76-11ea-915a-845c649a575b.png">
+http://lara-curry.herokuapp.com/
+（テストユーザーの用の簡単ログインボタンがあります）
+（管理者画面は/adminで、ID:admin、password:adminです）
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## アプリ概要
+- インドカレーテイクアウト注文システム
 
-## About Laravel
+## 開発環境
+- macOS Catalina 10.15.3
+- PHP 7.4.7
+- Laravel 7.19.0
+- PostgreSQL 12.3
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 機能一覧
+- 顧客
+  - ログイン機能
+  - 商品一覧、詳細表示
+  - カート（注文リスト）に商品を追加、編集、削除
+  - 注文機能
+  - 注文一覧、詳細表示
+  - ページネーション
+- 管理者（Laravel-admin）
+  - 顧客情報、注文情報の確認、編集、削除
+  - 商品登録、編集、削除
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<img width="1440" alt="03" src="https://user-images.githubusercontent.com/59720615/88476910-f0b97d00-cf76-11ea-9baa-b5a01c863438.png">
+<img width="1440" alt="04" src="https://user-images.githubusercontent.com/59720615/88476913-f2834080-cf76-11ea-8273-c92931ae36fb.png">
+<img width="1440" alt="06" src="https://user-images.githubusercontent.com/59720615/88476914-f57e3100-cf76-11ea-8096-04f3b4185a66.png">
+<img width="1440" alt="07" src="https://user-images.githubusercontent.com/59720615/88476916-f6af5e00-cf76-11ea-8ec9-1701beb115d6.png">
+<img width="1440" alt="admin" src="https://user-images.githubusercontent.com/59720615/88476920-f9aa4e80-cf76-11ea-8fc4-226132c64174.png">
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 作った理由
+- 近所のインドカレー屋にはまっており、テイクアウトが電話かその場で頼んで待つ形式だったので、ネットから注文できたらいいなと思いました。
+- プログラミングスクールのチーム開発でECサイトを作った際カート機能を担当しており、自力で実装できなかったので復習したい思いがあり、ちょうどLaravelに興味を持ったのでLaravelで実装することにしました。
 
-## Learning Laravel
+## 学習歴
+- 約1ヶ月半前にPHPの学習開始。Progate1周、書籍「気づけばプロ並みPHP改訂版」で1週間ほどでさらっと基礎を学びました。
+- そのあとLaravelへ。書籍「Laravel入門第2版」を終えた後、LaravelチュートリアルでToDoアプリを作成。どちらも1週間ほどかかりました。
+- このアプリはちょうど３週間で完成。あらゆる記事やGitHub、ドキュメントを読み、自力で完成させました。
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-
-### Community Sponsors
-
-<a href="https://op.gg"><img src="http://opgg-static.akamaized.net/icon/t.rectangle.png" width="150"></a>
-
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [云软科技](http://www.yunruan.ltd/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 苦労した点
+- 最も苦労したのは中間テーブル（OrderProducts)の書き方。注文情報を保存する時に同時に注文商品も保存したり、注文商品テーブルのデータの表し方など、Railsに慣れているがゆえに基本的な部分を見逃していました。
+- カート機能の、カート内に同じ商品があれば数量を増やす、カート内商品全削除にも苦労しました。
