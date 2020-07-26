@@ -24,8 +24,16 @@
                 <label for="password">パスワード</label>
                 <input type="password" class="form-control" id="password" name="password" />
               </div>
-              <div class="text-right">
-                <button type="submit" class="btn btn-add">送信</button>
+              <div class="text-center">
+                <button type="submit" class="btn btn-add my-3">ログイン</button>
+              </div>
+            </form>
+            <form action="/login" method="post">
+              @csrf
+              <input name="email" type="hidden" value="test1@example.com">
+              <input name="password" type="hidden" value="password">
+              <div class="text-center">
+                <button type="submit" class="btn btn-move">テストユーザーでログイン</button>
               </div>
             </form>
           </div>

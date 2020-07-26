@@ -32,8 +32,8 @@
                 <label for="password-confirm">パスワード（確認）</label>
                 <input type="password" class="form-control" id="password-confirm" name="password_confirmation">
               </div>
-              <div class="text-right">
-                <button type="submit" class="btn btn-add">送信</button>
+              <div class="text-center">
+                <button type="submit" class="btn btn-add mt-3">登録</button>
               </div>
             </form>
           </div>
